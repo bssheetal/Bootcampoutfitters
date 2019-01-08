@@ -1,6 +1,10 @@
+require("dotenv").config();
 var db = require("../models");
 var passport = require("../config/passport");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+var axios = require('axios');
+var keys = require("../keys.js")
+var rei_hiking = keys.hike.id;
 
 module.exports = function(app) {
   // Get all examples
@@ -61,6 +65,17 @@ module.exports = function(app) {
       });
   });
 
+  app.get("/hiking",function (req,res) {
+    console.log("secretkey is" + rei_hiking);
+    var hikingqueryurl = "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=" + rei_hiking;
+    console.log(hikingqueryurl);
+    axios.get(hikingqueryurl).then(function (response) {
+
+      var JSONDATA = response.data.trails;
+      res.send(JSONDATA);
+
+    })
+  })
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
