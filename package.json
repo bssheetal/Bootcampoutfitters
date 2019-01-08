@@ -1,5 +1,5 @@
 {
-  "name": "Bootcamp Outfitters",
+  "name": "BootcampOutfitters",
   "version": "1.0.0",
   "description": "Project 2 - An Outdoor Company",
   "main": "server.js",
@@ -11,6 +11,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@google/maps": "^0.5.5",
     "axios": "^0.18.0",
     "bcrypt-nodejs": "0.0.3",
     "dotenv": "^6.2.0",
