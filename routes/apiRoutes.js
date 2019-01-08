@@ -57,7 +57,10 @@ module.exports = function (app) {
     console.log(req.body);
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      city: req.body.city,
+      state: req.body.state,
+      zipcode: req.body.zipcode
     })
       .then(function () {
         res.redirect(307, "/api/login");
