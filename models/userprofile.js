@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
         city: DataTypes.STRING,
         activities: DataTypes.STRING,
         activities_complete: DataTypes.BOOLEAN
-
+        
     });
     return Userprofile;
 }

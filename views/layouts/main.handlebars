@@ -50,10 +50,16 @@
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
+          {{!-- <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li> --}}
           {{/unless}}
           {{#if user}}
           <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
           </li>
           {{/if}}
         </ul>
@@ -81,7 +87,7 @@
   <script src="/js/index.js"></script>
   <script src="/js/signup.js"></script>
   <script src="/js/login.js"></script>
-
+  <script src="/js/home.js"></script>
 </body>
 
 </html>
