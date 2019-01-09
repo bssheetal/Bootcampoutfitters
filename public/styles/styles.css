@@ -121,6 +121,12 @@ body {
   background-color: #ea4335;
 }
 
+.searchButton
+{
+  color: white;
+  background-color: #ea4335;
+  width: 45%;  
+}
 .btn-facebook {
   color: white;
   background-color: #3b5998;
