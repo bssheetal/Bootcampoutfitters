@@ -5,7 +5,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 var axios = require('axios');
 var keys = require("../keys.js")
 var rei_hiking = keys.hike.id;
-var geocode_key = "AIzaSyBl_HHn6uZU5pUaqN8CWz6ppoYUJbCfTmc";
+var geocode_key = keys.geocode.id;
 var geocode = require('@google/maps');
 
 module.exports = function (app) {
@@ -80,7 +80,7 @@ module.exports = function (app) {
     googleMapsClient.geocode({
       components:
       {
-        locality: 'Rancho+PenasQuitos',
+        locality: req.query.region,
         country: 'USA'
       }
     }, function (err, response) {
@@ -94,15 +94,41 @@ module.exports = function (app) {
 
           var JSONDATA = response.data.trails;
           res.send(JSONDATA);
-
-        })
+    
+        });
       }
     });
 
   })
+
+  app.post("/api/search",function(req,res)
+  {
+    db.Searchregion.create({
+      latitude:req.body.latitude,
+      longitude: req.body.longitude,
+      UserId:req.body.Id
+    }).then(function(data)
+    {
+      res.json(data);
+    });
+  });
+
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
+
+  
 };
+
+
+function gethikinginfo(hikingqueryurl)
+  {
+    axios.get(hikingqueryurl).then(function (response) {
+
+      var JSONDATA = response.data.trails;
+      return JSONDATA;
+
+    })
+  }
