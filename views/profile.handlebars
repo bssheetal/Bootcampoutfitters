@@ -1,3 +1,4 @@
+{{!-- Bucket List Section: --}}
 <div class="row">
   <div class="col-8 offset-2">
     <h4>{{user.email}}'s</h4>
@@ -13,12 +14,39 @@
       </div>
       <button id="submit" class="btn btn-primary float-right">Buck-it</button>
     </form>
-    <h3>Examples:</h3>
+    <h3>Bucket List:</h3>
     <ul id="example-list" class="list-group">
       {{#each user.Examples}}
       <li data-id="{{this.id}}" class="list-group-item">
         <a href="example/{{this.id}}">{{this.text}}</a>
         <button class="btn btn-danger float-right delete">ｘ</button>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+{{!-- Search Geographic Area Section --}}
+<div class="row">
+  <div class="col-8 offset-2">
+       <h4 class="text-center">Search Activities by Geographic Area</h4><br>
+    <form class="clearfix mb-4" action="POST">
+      <div class="form-group">
+        <label for="example-text">Search Criterea:</label>
+        <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter List Item">
+      </div>
+      <div class="form-group">
+        <label for="example-description">Item Description</label>
+        <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Item Description"></textarea>
+      </div>
+      <button id="submit" class="btn btn-primary float-right">Buck-it</button>
+    </form>
+    <h3>Search Results:</h3>
+    <ul id="example-list" class="list-group">
+      {{#each user.Examples}}
+      <li data-id="{{this.id}}" class="list-group-item">
+        <a href="example/{{this.id}}">{{this.text}}</a>
+        <button class="btn btn-danger float-right delete">bucket-it</button>
       </li>
       {{/each}}
     </ul>
