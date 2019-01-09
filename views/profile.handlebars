@@ -1,16 +1,17 @@
 <div class="row">
   <div class="col-8 offset-2">
-    <h1>Hello {{user.email}}!</h1>
+    <h4>{{user.email}}'s</h4>
+       <h4 class="text-center">Profile Page</h4><br>
     <form class="clearfix mb-4" action="POST">
       <div class="form-group">
-        <label for="example-text">Example Text</label>
-        <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+        <label for="example-text">Bucket List Item</label>
+        <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter List Item">
       </div>
       <div class="form-group">
-        <label for="example-description">Example Description</label>
-        <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+        <label for="example-description">Item Description</label>
+        <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Item Description"></textarea>
       </div>
-      <button id="submit" class="btn btn-primary float-right">Submit</button>
+      <button id="submit" class="btn btn-primary float-right">Buck-it</button>
     </form>
     <h3>Examples:</h3>
     <ul id="example-list" class="list-group">
