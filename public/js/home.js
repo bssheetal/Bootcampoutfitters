@@ -90,6 +90,7 @@ $(document).ready(function () {
         })
     });
 
+// On click listener for the add button attached to each item built in the get request above
 
     $(document).on("click", ".addButton", function (e) {
         e.preventDefault();
@@ -101,7 +102,7 @@ $(document).ready(function () {
         };
         console.log(trailLocation);
         console.log(trailName);
-
+// Post request to add the activity associated with each add button
         $.ajax({
             headers: {
                 "Content-Type": "application/json"
@@ -111,20 +112,23 @@ $(document).ready(function () {
             data: JSON.stringify(upload)
         })
         .then(function (data) {
-            // append the new bucket list item 
-            // to the bucket list
+            // append the new bucket list item to the bucket list
             $("#example-list").append(`<li>${data.text}</li>`);
+            // Refresh only the div and not the entire page so as to retain data from get
+            $("#bucketDiv").load(document.URL + " #bucketDiv");
         })
         .catch(function (err) {
             console.log(err);
             alert(err.responseText);
         });
     });
+// On click listener to refresh page and render updated bucket lis
+    $(document).on("click", "#loadPreferences", function (e) {
+        e.preventDefault();
+        location.reload();
+    });
 
-    // $(document).on("click", "#loadPreferences", function (e) {
-    //     e.preventDefault();
-    //     location.reload();
-    // });
+
     $(document).on("click", ".trailImg", function () {
         console.log("im clicked");
         $(".insidemodal").empty();
