@@ -103,6 +103,50 @@ $(document).ready(function () {
             }
 
         })
+
+        $.get("/weather", searchinfo, function(response) {
+            console.log(response);
+            var city = response[0].current.observationpoint;
+      
+            $("#weatherDiv").append("5 Day Forecast for: " + city);
+      
+            var forecastDiv = $('<div class = "forecast">');
+            for (var i = 0; i < response[0].forecast.length; i++) {
+              var currentDay = response[0].forecast[i];
+      
+              console.log(currentDay);
+              var dayDiv = $('<div class = "daydiv">');
+              var dateDiv = $(
+                "<p class = 'forecastFont'>" + currentDay.date + "</p>"
+              );
+              var dayofwkDiv = $(
+                "<p class = 'forecastFont'>" + currentDay.day + "</p>"
+              );
+              var skytxtDiv = $(
+                "<p class = 'forecastFont'>" + currentDay.skytextday + "</p>"
+              );
+              var skycodeDiv = $(
+                "<p class = 'forecastFont'>skycodeday: " + currentDay.skycodeday + "</p>"
+              );
+              var highDiv = $(
+                "<p class = 'forecastFont'> High: " + currentDay.high + "\u00B0F" + "</p>"
+              );
+              var lowDiv = $(
+                "<p class = 'forecastFont'> Low: " + currentDay.low + "\u00B0F" + "</p>"
+              );
+      
+              dayDiv.append(dateDiv);
+              dayDiv.append(dayofwkDiv);
+              dayDiv.append(skytxtDiv);
+              dayDiv.append(skycodeDiv);
+              dayDiv.append(highDiv);
+              dayDiv.append(lowDiv);
+      
+              forecastDiv.append(dayDiv);
+            }
+            $("#weatherDiv").append(forecastDiv);
+          });
+
     });
 
 // On click listener for the add button attached to each item built in the get request above
