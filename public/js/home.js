@@ -82,7 +82,7 @@ $(document).ready(function () {
                 newCardbody.append(newH);
                 newCardbody.append(newP);
                 newCardbody.append(newB);
-
+{/* <i class="fas fa-list"></i> */}
                 newDiv.append(newIMG, newCardbody);
                 $("#hikingDiv").append(newDiv);
             }
