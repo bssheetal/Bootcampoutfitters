@@ -1,7 +1,8 @@
+{{!-- Bucket List Section: --}}
 <div class="row">
   <div class="col-8 offset-2">
     <h4>{{user.email}}'s</h4>
-       <h4 class="text-center">Profile Page</h4><br>
+    <h4 class="text-center">Profile Page</h4><br>
     <form class="clearfix mb-4" action="POST">
       <div class="form-group">
         <label for="example-text">Bucket List Item</label>
@@ -13,7 +14,7 @@
       </div>
       <button id="submit" class="btn btn-primary float-right">Buck-it</button>
     </form>
-    <h3>Examples:</h3>
+    <h3>Bucket List:</h3>
     <ul id="example-list" class="list-group">
       {{#each user.Examples}}
       <li data-id="{{this.id}}" class="list-group-item">
@@ -22,5 +23,84 @@
       </li>
       {{/each}}
     </ul>
+  </div>
+</div>
+
+{{!-- Search Geographic Area Section --}}
+<div class="row">
+  <div class="col-8 offset-2">
+    <h4 class="text-center">Search Activities by Geographic Area</h4><br>
+    <form class="clearfix mb-4" action="POST">
+      <div class="form-group">
+        <label for="example-text">Search Criterea:</label>
+        <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter List Item">
+      </div>
+      <div class="form-group">
+        <label for="example-description">Item Description</label>
+        <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Item Description"></textarea>
+      </div>
+      <button id="submit" class="btn btn-primary float-right">Buck-it</button>
+    </form>
+    <h3>Search Results:</h3>
+    <ul id="example-list" class="list-group">
+      {{#each user.Examples}}
+      <li data-id="{{this.id}}" class="list-group-item">
+        <a href="example/{{this.id}}">{{this.text}}</a>
+        <button class="btn btn-danger float-right delete">bucket-it</button>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8 offset-2">
+    <div id="parallaxTest">
+      <div class="mySlides">
+        <div class="container">
+
+        </div>
+      </div>
+    </div>
+    <div class="search">
+      <form class="formSearch">
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Location">
+            <div class="invalid-feedback">
+              Please enter a location.
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2" id="searchButton">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="hikingDiv">
+
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <i class="fas fa-hiking"></i>
+            <h5 class="myModalLabel" id="exampleModalCenterTitle">Trail Map</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6>TrailMap</h6>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btnclose btn-outline-light" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
