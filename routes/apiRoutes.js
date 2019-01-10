@@ -7,6 +7,7 @@ var keys = require("../keys.js")
 var rei_hiking = keys.hike.id;
 var geocode_key = keys.geocode.id;
 var geocode = require('@google/maps');
+var weather = require('weather-js');
 
 module.exports = function (app) {
   // Get all examples
