@@ -1,7 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Example = sequelize.define("Example", {
     text: DataTypes.STRING,
-    description: DataTypes.TEXT
+    description: DataTypes.TEXT,
+    complete: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   });
 
   Example.associate = function(models) {

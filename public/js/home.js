@@ -121,6 +121,49 @@ $(document).ready(function () {
         });
     });
 
+    // On click listener for the complete button
+
+    $(document).on("click", ".complete", function (e) {
+        e.preventDefault();
+
+        let upload = {
+            text: trailName,
+            description: trailLocation
+        };
+        console.log(trailLocation);
+        console.log(trailName);
+// Post request to add the activity associated with each add button
+        $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "POST",
+            url: "/api/examples",
+            data: JSON.stringify(upload)
+        })
+        .then(function (data) {
+            // append the new bucket list item to the bucket list
+            $("#example-list").append(`<li>${data.text}</li>`);
+            // Refresh only the div and not the entire page so as to retain data from get
+            $("#bucketDiv").load(document.URL + " #bucketDiv");
+        })
+        .catch(function (err) {
+            console.log(err);
+            alert(err.responseText);
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
     $(document).on("click", ".trailImg", function () {
         console.log("im clicked");
         $(".insidemodal").empty();
@@ -148,5 +191,4 @@ $(document).ready(function () {
         $('#myModal').modal('show');
 
     })
-
 });
