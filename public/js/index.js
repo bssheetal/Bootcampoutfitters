@@ -92,9 +92,12 @@ var handleDeleteBtnClick = function() {
 
   API.deleteExample(idToDelete).then(function() {
     refreshExamples();
+    $("#bucketDiv").load(document.URL + " #bucketDiv");
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+$(document).on("click", ".delete", handleDeleteBtnClick);
