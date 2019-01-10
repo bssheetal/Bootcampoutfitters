@@ -50,8 +50,7 @@ $(document).ready(function () {
 
             for (var i = 0; i < response.length; i++) {
                 trailInfo = response[i];
-                var newDiv = $("<div>");
-                // newDiv.addClass("col-sm-12");
+                var newDiv = $("<div>").addClass("card card-trail mt-4");
 
                 newDiv.attr("data-actNum", trailInfo.id)
                     .attr("data-actName", trailInfo.name)
@@ -63,12 +62,14 @@ $(document).ready(function () {
                     .attr("data-summary", trailInfo.summary);
 
                 var newIMG = $("<img>");
-                newIMG.addClass("trailImg");
+                newIMG.addClass("trailImg card-image-top");
                 var trailIMG = trailInfo.imgSmall;
                 if (trailIMG == '') {
                     trailIMG = "https://image.ibb.co/cxZnrn/defaulthiker240.png";
                 };
                 newIMG.attr("src", trailIMG);
+
+                var newCardbody = $("<div>").addClass("card-body");
                 var newP = $("<p>");
                 var newH = $("<h5>");
                 var newB = $("<button>");
@@ -78,10 +79,11 @@ $(document).ready(function () {
                     .attr("data-actName", trailInfo.name)
                     .attr("data-actLoc", trailInfo.location);
                 newP.append(trailInfo.location);
-                newDiv.append(newH);
-                newDiv.append(newB);
-                newDiv.append(newP);
-                newDiv.append(newIMG);
+                newCardbody.append(newH);
+                newCardbody.append(newP);
+                newCardbody.append(newB);
+
+                newDiv.append(newIMG, newCardbody);
                 $("#hikingDiv").append(newDiv);
             }
 
