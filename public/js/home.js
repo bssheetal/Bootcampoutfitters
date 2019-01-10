@@ -7,7 +7,7 @@ $(document).ready(function () {
         var count = 0;
         function displayImage() {
             var div =
-                $(".mySlides").html("<img src=" + images[count] + " width='180px'> ");
+                $(".mySlides").html("<img src=" + images[count] + " width='100%'> ");
         }
 
         function nextImage() {
@@ -15,7 +15,7 @@ $(document).ready(function () {
             count++;
 
             // Use a setTimeout to run displayImage after 1 second.
-            setTimeout(displayImage, 1000);
+            setTimeout(displayImage, 10000);
 
             // If the count is the same as the length of the image array, reset the count to 0.
             if (count === images.length) {
@@ -25,16 +25,17 @@ $(document).ready(function () {
         }
 
         function slideshow() {
-            showImage = setInterval(nextImage, 3000); displayImage();
-            slideshow();
+            showImage = setInterval(nextImage, 13000);
+            displayImage();
+
         }
 
-        displayImage();
+
         slideshow();
     }
 
 
-    //slideshowbackgroundimages();
+    slideshowbackgroundimages();
 
     var region = "";
 
@@ -52,17 +53,30 @@ $(document).ready(function () {
 
             for (var i = 0; i < response.length; i++) {
                 trailInfo = response[i];
+                var difficulty;
                 var newDiv = $("<div>");
+
                 newDiv.addClass("col-sm-4");
+                if (trailInfo.difficulty === "blue") {
+                    difficulty = "Medium";
+                }
+                else if (trailInfo.difficulty === "blueblack") {
+                    difficulty = "Hard";
+                }
+                else if (trailInfo.difficulty === "greenBlue") {
+                    difficulty = "Easy";
+                }
 
                 newDiv.attr("data-actNum", trailInfo.id)
                     .attr("data-actName", trailInfo.name)
-                    .attr("data-actDiff", trailInfo.difficulty)
+                    .attr("data-actDiff", difficulty)
                     .attr("data-actLength", trailInfo.length)
                     .attr("data-actRating", trailInfo.stars)
                     .attr("data-lat", trailInfo.latitude)
                     .attr("data-lng", trailInfo.longitude)
-                    .attr("data-summary", trailInfo.summary);
+                    .attr("data-summary", trailInfo.summary)
+                    .attr("data-ascent", trailInfo.ascent)
+                    .attr("data-descent", trailInfo.descent);
 
                 var newIMG = $("<img>");
                 newIMG.addClass("trailImg");
@@ -110,15 +124,15 @@ $(document).ready(function () {
             url: "/api/examples",
             data: JSON.stringify(upload)
         })
-        .then(function (data) {
-            // append the new bucket list item 
-            // to the bucket list
-            $("#example-list").append(`<li>${data.text}</li>`);
-        })
-        .catch(function (err) {
-            console.log(err);
-            alert(err.responseText);
-        });
+            .then(function (data) {
+                // append the new bucket list item 
+                // to the bucket list
+                $("#example-list").append(`<li>${data.text}</li>`);
+            })
+            .catch(function (err) {
+                console.log(err);
+                alert(err.responseText);
+            });
     });
 
     // $(document).on("click", "#loadPreferences", function (e) {
@@ -133,21 +147,31 @@ $(document).ready(function () {
         var newP = $("<p>");
         var name = $(this).closest('div').attr('data-actName');
         console.log("this is pointing to" + name);
-        newP.append(name);
+        newP.append(`<b>${name}</b>`);
         var newIMG = $("<img>");
         var trailIMG = $(this).attr("src");
         newIMG.attr("src", trailIMG);
         var lengthp = $("<p>");
-        var Length=$(this).closest('div').attr('data-actLength');
-        lengthp.append("Length of trail"+" "+Length+"miles");
+        var Length = $(this).closest('div').attr('data-actLength');
+        lengthp.append(`<p><b>Length of trail:</b> ${Length} miles.</p>`);
+        var diffp = $("<p>");
+        var difflevel = $(this).closest('div').attr('data-actDiff');
+        diffp.append(`<p><b>Difficulty:</b> ${difflevel}</p>`);
         var summary = $(this).closest('div').attr('data-summary');
         console.log(name);
         var newsummary = $("<p>");
-        newsummary.append("Description:" + summary);
+        newsummary.append(`<p><b>Description:</b> "${summary}</p>`);
+        var ascentp = $("<p>");
+        var Ascent = $(this).closest('div').attr('data-ascent');
+        var Descent = $(this).closest('div').attr('data-descent');
+        ascentp.append(`<p><b>Ascent:</b>${Ascent}      <b>Descent:</b>${Descent}</p>`)
         modaldiv.append(newP);
         modaldiv.append(newIMG);
         modaldiv.append(lengthp);
+        modaldiv.append(diffp);
         modaldiv.append(newsummary);
+        modaldiv.append(ascentp);
+
         $(".modal-body").append(modaldiv);
         $('#myModal').modal('show');
 
