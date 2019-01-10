@@ -19,7 +19,6 @@ module.exports = function(app) {
       },
       include: [db.Example]
     }).then(function(dbUser) {
-      console.log("HAHAHA");
       res.render("profile", { user: dbUser });
     });
   });
