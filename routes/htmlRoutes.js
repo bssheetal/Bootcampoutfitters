@@ -3,20 +3,12 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   // Load signup page
   app.get("/", function(req, res) {
-<<<<<<< HEAD
-    return res.render("signup", {signup: true, loginSignup: "sign-up"});
-=======
     return res.render("signupOrLogin", {isSignup: true, strSignupOrLogin: "sign-up"});
->>>>>>> 1d95ab69af8c5c307cec817e356fd5eb7edfe962
   });
 
   // Load login page
   app.get("/login", function(req, res) {
-<<<<<<< HEAD
-    res.render("login", {signup: false});
-=======
     res.render("signupOrLogin", {isSignup: false, strSignupOrLogin: "login"});
->>>>>>> 1d95ab69af8c5c307cec817e356fd5eb7edfe962
   });
 
   // Load profile page

@@ -33,11 +33,7 @@ body {
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-<<<<<<< HEAD
-  background: scroll center url('../images/BlueMountains.jpg');
-=======
-  background: scroll center url('../images/photo-1469594292607-7bd90f8d3ba4.jpeg');
->>>>>>> 1d95ab69af8c5c307cec817e356fd5eb7edfe962
+  background: scroll center url('../images/BlueMountain.jpeg');
   background-size: cover;
 }
 
