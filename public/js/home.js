@@ -50,9 +50,7 @@ $(document).ready(function () {
 
             for (var i = 0; i < response.length; i++) {
                 trailInfo = response[i];
-                var newDiv = $("<div>").addClass("card");
-                newDiv.attr("width", "18rem");
-                // newDiv.addClass("col-sm-12");
+                var newDiv = $("<div>").addClass("card card-trail mt-4");
 
                 newDiv.attr("data-actNum", trailInfo.id)
                     .attr("data-actName", trailInfo.name)
@@ -62,15 +60,6 @@ $(document).ready(function () {
                     .attr("data-lat", trailInfo.latitude)
                     .attr("data-lng", trailInfo.longitude)
                     .attr("data-summary", trailInfo.summary);
-
-/* <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> */
 
                 var newIMG = $("<img>");
                 newIMG.addClass("trailImg card-image-top");
@@ -91,8 +80,9 @@ $(document).ready(function () {
                     .attr("data-actLoc", trailInfo.location);
                 newP.append(trailInfo.location);
                 newCardbody.append(newH);
-                newCardbody.append(newB);
                 newCardbody.append(newP);
+                newCardbody.append(newB);
+
                 newDiv.append(newIMG, newCardbody);
                 $("#hikingDiv").append(newDiv);
             }
