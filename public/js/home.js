@@ -120,12 +120,6 @@ $(document).ready(function () {
             alert(err.responseText);
         });
     });
-// On click listener to refresh page and render updated bucket lis
-    $(document).on("click", "#loadPreferences", function (e) {
-        e.preventDefault();
-        location.reload();
-    });
-
 
     $(document).on("click", ".trailImg", function () {
         console.log("im clicked");
