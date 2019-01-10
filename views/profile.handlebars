@@ -26,29 +26,67 @@
   </div>
 </div>
 
-{{!-- Search Geographic Area Section --}}
-<div class="row">
-  <div class="col-8 offset-2">
-       <h4 class="text-center">Search Activities by Geographic Area</h4><br>
-    <form class="clearfix mb-4" action="POST">
-      <div class="form-group">
-        <label for="example-text">Search Criterea:</label>
-        <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter List Item">
+<div id="parallaxTest">
+        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+          <div class="container">
+            <!-- <div class="titleContainer">
+              <h1 class="title">Project 2</h1>
+            </div> -->
+            <div class="search">
+              <form class="formSearch">
+                <div class="form-row align-items-center">
+                  <div class="col-auto">
+                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Location">
+                    <div class="invalid-feedback">
+                      Please enter a location.
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2" id="searchButton">Search</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item">
+              <div class="d-block w-100 imagesCarousel" id="firstSlide" alt="First slide"></div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-block w-100 imagesCarousel" id="secondSlide" alt="Second slide"></div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-block w-100 imagesCarousel" id="thirdSlide" alt="Third slide"></div>
+            </div>
+            <div class="carousel-item active">
+              <div class="d-block w-100 imagesCarousel" id="fourthSlide" alt="Fourth slide"></div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-block w-100 imagesCarousel" id="fifthSlide" alt="Fifth slide"></div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="example-description">Item Description</label>
-        <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Item Description"></textarea>
+    
+    
+      </section>
+      <div id="hikingDiv">
+    
       </div>
-      <button id="submit" class="btn btn-primary float-right">Buck-it</button>
-    </form>
-    <h3>Search Results:</h3>
-    <ul id="example-list" class="list-group">
-      {{#each user.Examples}}
-      <li data-id="{{this.id}}" class="list-group-item">
-        <a href="example/{{this.id}}">{{this.text}}</a>
-        <button class="btn btn-danger float-right delete">bucket-it</button>
-      </li>
-      {{/each}}
-    </ul>
-  </div>
-</div>
+      <div>
+        <button type="submit" id="loadPreferences" class="btn btn-success">Load Preferences</button>
+      </div>
+    
+      <!-- Modal content-->
+      <div class="card-footer text-white bg-primary footer">
+        <p class="footer-text"> © 2019 Bootcamp Outfitters. All rights reserved. </p>
+      </div>    
+     
