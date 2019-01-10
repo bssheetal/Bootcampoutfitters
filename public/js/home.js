@@ -89,7 +89,7 @@ $(document).ready(function () {
                 var newH = $("<h5>");
                 var newB = $("<button>");
                 newH.append(trailInfo.name);
-                newB.append("add").addClass("addButton");
+                newB.append('<i class="fas fa-list"></i> Add to List').addClass("addButton btn-primary");
                 newB.attr("type", "submit")
                     .attr("data-actName", trailInfo.name)
                     .attr("data-actLoc", trailInfo.location);
