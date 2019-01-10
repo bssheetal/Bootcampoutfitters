@@ -73,9 +73,15 @@ $(document).ready(function () {
                 newIMG.attr("src", trailIMG);
                 var newP = $("<p>");
                 var newH = $("<h5>");
+                var newB = $("<button>");
                 newH.append(trailInfo.name);
+                newB.append("add").addClass("addButton");
+                newB.attr("type", "submit")
+                    .attr("data-actName", trailInfo.name)
+                    .attr("data-actLoc", trailInfo.location);
                 newP.append(trailInfo.location);
                 newDiv.append(newH);
+                newDiv.append(newB);
                 newDiv.append(newP);
                 newDiv.append(newIMG);
                 $("#hikingDiv").append(newDiv);
@@ -84,6 +90,41 @@ $(document).ready(function () {
         })
     });
 
+
+    $(document).on("click", ".addButton", function (e) {
+        e.preventDefault();
+        let trailName = ($(this).data("actname"));
+        let trailLocation = ($(this).data("actloc"));
+        let upload = {
+            text: trailName,
+            description: trailLocation
+        };
+        console.log(trailLocation);
+        console.log(trailName);
+
+        $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "POST",
+            url: "/api/examples",
+            data: JSON.stringify(upload)
+        })
+        .then(function (data) {
+            // append the new bucket list item 
+            // to the bucket list
+            $("#example-list").append(`<li>${data.text}</li>`);
+        })
+        .catch(function (err) {
+            console.log(err);
+            alert(err.responseText);
+        });
+    });
+
+    // $(document).on("click", "#loadPreferences", function (e) {
+    //     e.preventDefault();
+    //     location.reload();
+    // });
     $(document).on("click", ".trailImg", function () {
         console.log("im clicked");
         $(".insidemodal").empty();
@@ -112,4 +153,8 @@ $(document).ready(function () {
 
     })
 
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 298b92d5665a0e66ada27976501ba4d5005be324
