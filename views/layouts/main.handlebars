@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
 
 <head>
   <meta charset="utf-8">
@@ -14,10 +14,60 @@
 
 <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
-<body>
-    {{{body}}}
+<body class="d-flex flex-column h-100">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <!-- <b>Sign Up Page</b>--></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            {{#if user}}
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            {{/if}}
+          </ul>
+          <ul class="navbar-nav">
+            {{#unless user}}
+            <li class="nav-item">
+              <a class="nav-link" href="/">Sign up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {{!-- <li class="nav-item">
+              <a class="nav-link" href="/home">Home</a>
+            </li> --}}
+            {{/unless}}
+            {{#if user}}
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            {{!-- <li class="nav-item">
+              <a class="nav-link" href="/home">Home</a>
+            </li> --}}
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-  
+  <div class="container">
+    {{{body}}}
+  </div>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span> © 2019 Bootcamp Outfitters. All rights reserved. </span>
+    </div>
+  </footer>
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
@@ -25,6 +75,7 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+
   <script src="/js/index.js"></script>
   <script src="/js/signup.js"></script>
   <script src="/js/login.js"></script>
