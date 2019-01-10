@@ -14,8 +14,7 @@ $(document).ready(function () {
             // Increment the count by 1.
             count++;
 
-            // Use a setTimeout to run displayImage after 1 second.
-            setTimeout(displayImage, 1000);
+           displayImage();
 
             // If the count is the same as the length of the image array, reset the count to 0.
             if (count === images.length) {
@@ -25,16 +24,15 @@ $(document).ready(function () {
         }
 
         function slideshow() {
-            showImage = setInterval(nextImage, 3000); displayImage();
-            slideshow();
+            showImage = setInterval(nextImage, 13000); 
+            // displayImage();
         }
 
-        displayImage();
         slideshow();
     }
 
 
-    //slideshowbackgroundimages();
+    slideshowbackgroundimages();
 
     var region = "";
 
@@ -53,7 +51,7 @@ $(document).ready(function () {
             for (var i = 0; i < response.length; i++) {
                 trailInfo = response[i];
                 var newDiv = $("<div>");
-                newDiv.addClass("col-sm-4");
+                // newDiv.addClass("col-sm-12");
 
                 newDiv.attr("data-actNum", trailInfo.id)
                     .attr("data-actName", trailInfo.name)
