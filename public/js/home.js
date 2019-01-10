@@ -14,8 +14,7 @@ $(document).ready(function () {
             // Increment the count by 1.
             count++;
 
-            // Use a setTimeout to run displayImage after 1 second.
-            setTimeout(displayImage, 10000);
+           displayImage();
 
             // If the count is the same as the length of the image array, reset the count to 0.
             if (count === images.length) {
@@ -25,17 +24,15 @@ $(document).ready(function () {
         }
 
         function slideshow() {
-            showImage = setInterval(nextImage, 13000);
-            displayImage();
-
+            showImage = setInterval(nextImage, 13000); 
+            // displayImage();
         }
-
 
         slideshow();
     }
 
 
-    slideshowbackgroundimages();
+    // slideshowbackgroundimages();
 
     var region = "";
 
@@ -66,6 +63,7 @@ $(document).ready(function () {
                 else if (trailInfo.difficulty === "greenBlue") {
                     difficulty = "Easy";
                 }
+                var newDiv = $("<div>").addClass("card card-trail mt-4");
 
                 newDiv.attr("data-actNum", trailInfo.id)
                     .attr("data-actName", trailInfo.name)
@@ -79,12 +77,14 @@ $(document).ready(function () {
                     .attr("data-descent", trailInfo.descent);
 
                 var newIMG = $("<img>");
-                newIMG.addClass("trailImg");
+                newIMG.addClass("trailImg card-image-top");
                 var trailIMG = trailInfo.imgSmall;
                 if (trailIMG == '') {
                     trailIMG = "https://image.ibb.co/cxZnrn/defaulthiker240.png";
                 };
                 newIMG.attr("src", trailIMG);
+
+                var newCardbody = $("<div>").addClass("card-body");
                 var newP = $("<p>");
                 var newH = $("<h5>");
                 var newB = $("<button>");
@@ -94,16 +94,18 @@ $(document).ready(function () {
                     .attr("data-actName", trailInfo.name)
                     .attr("data-actLoc", trailInfo.location);
                 newP.append(trailInfo.location);
-                newDiv.append(newH);
-                newDiv.append(newB);
-                newDiv.append(newP);
-                newDiv.append(newIMG);
+                newCardbody.append(newH);
+                newCardbody.append(newP);
+                newCardbody.append(newB);
+
+                newDiv.append(newIMG, newCardbody);
                 $("#hikingDiv").append(newDiv);
             }
 
         })
     });
 
+// On click listener for the add button attached to each item built in the get request above
 
     $(document).on("click", ".addButton", function (e) {
         e.preventDefault();
@@ -115,7 +117,7 @@ $(document).ready(function () {
         };
         console.log(trailLocation);
         console.log(trailName);
-
+// Post request to add the activity associated with each add button
         $.ajax({
             headers: {
                 "Content-Type": "application/json"
@@ -124,21 +126,18 @@ $(document).ready(function () {
             url: "/api/examples",
             data: JSON.stringify(upload)
         })
-            .then(function (data) {
-                // append the new bucket list item 
-                // to the bucket list
-                $("#example-list").append(`<li>${data.text}</li>`);
-            })
-            .catch(function (err) {
-                console.log(err);
-                alert(err.responseText);
-            });
+        .then(function (data) {
+            // append the new bucket list item to the bucket list
+            $("#example-list").append(`<li>${data.text}</li>`);
+            // Refresh only the div and not the entire page so as to retain data from get
+            $("#bucketDiv").load(document.URL + " #bucketDiv");
+        })
+        .catch(function (err) {
+            console.log(err);
+            alert(err.responseText);
+        });
     });
 
-    // $(document).on("click", "#loadPreferences", function (e) {
-    //     e.preventDefault();
-    //     location.reload();
-    // });
     $(document).on("click", ".trailImg", function () {
         console.log("im clicked");
         $(".insidemodal").empty();

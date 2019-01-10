@@ -12,12 +12,6 @@ $("#user-sign-up").on("submit", function(e) {
         .trim(),
       city: $("#city")
         .val()
-        .trim(),
-      state: $("#state")
-        .val()
-        .trim(),
-      zipcode: $("#zipcode")
-        .val()
         .trim()
     }
   })
