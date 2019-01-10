@@ -7,7 +7,7 @@ $(document).ready(function () {
         var count = 0;
         function displayImage() {
             var div =
-                $(".mySlides").html("<img src=" + images[count] + " width='180px'> ");
+                $(".mySlides").html("<img src=" + images[count] + " width='100%'> ");
         }
 
         function nextImage() {
@@ -32,7 +32,7 @@ $(document).ready(function () {
     }
 
 
-    slideshowbackgroundimages();
+    // slideshowbackgroundimages();
 
     var region = "";
 
