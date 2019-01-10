@@ -153,4 +153,8 @@ $(document).ready(function () {
 
     })
 
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 298b92d5665a0e66ada27976501ba4d5005be324
