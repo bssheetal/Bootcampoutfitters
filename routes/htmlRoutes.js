@@ -3,12 +3,12 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   // Load signup page
   app.get("/", function(req, res) {
-    return res.render("signup");
+    return res.render("signupOrLogin", {isSignup: true, strSignupOrLogin: "sign-up"});
   });
 
   // Load login page
   app.get("/login", function(req, res) {
-    res.render("login");
+    res.render("signupOrLogin", {isSignup: false, strSignupOrLogin: "login"});
   });
 
   // Load profile page
@@ -19,6 +19,7 @@ module.exports = function(app) {
       },
       include: [db.Example]
     }).then(function(dbUser) {
+      console.log("HAHAHA");
       res.render("profile", { user: dbUser });
     });
   });
