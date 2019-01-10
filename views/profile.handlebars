@@ -15,6 +15,7 @@
       <button id="submit" class="btn btn-primary float-right">Buck-it</button>
     </form>
     <h3>Bucket List:</h3>
+    <div id="bucketDiv">
     <ul id="example-list" class="list-group">
       {{#each user.Examples}}
       <li data-id="{{this.id}}" class="list-group-item">
@@ -23,6 +24,7 @@
       </li>
       {{/each}}
     </ul>
+    </div>
   </div>
 </div>
 
