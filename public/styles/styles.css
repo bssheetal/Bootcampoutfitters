@@ -145,20 +145,31 @@ body {
   /* height: 200px; */
 }
 
-/* Weather Syling Info */
-.forecastFont {
-  font-size: 10px;
-}
-.forecast, .daydiv {
-  border: 1px solid #000;
-}
+/* Weather Syling Info (kat) */
 .daydiv {
-  width: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 150px;
 }
-.forecast {
-display: flex;
+#weatherDiv {
+  text-align: left;
+  margin-top:10px;
+}
+
+/* Nature Video: Home (kat) */
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  filter:opacity(75%);
+  z-index:-1;
+  top: -60px;
+  min-width: 110%;
+  min-height: 110%;
+  /* background-size: cover; */
 }
