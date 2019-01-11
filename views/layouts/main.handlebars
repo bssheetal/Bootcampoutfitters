@@ -16,44 +16,56 @@
 <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
 <body class="d-flex flex-column h-100">
+
+  
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/">
-          <!-- <b>Sign Up Page</b>--></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mr-auto">
-            {{#if user}}
-            <li class="nav-item">
-              <a class="nav-link" href="/profile">Profile</a>
-            </li>
-            {{/if}}
-          </ul>
-          <ul class="navbar-nav">
-            {{#unless user}}
-            <li class="nav-item">
-              <a class="nav-link" href="/">Sign up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            {{!-- <li class="nav-item">
-              <a class="nav-link" href="/home">Home</a>
-            </li> --}}
-            {{/unless}}
-            {{#if user}}
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-            </li>
-            {{!-- <li class="nav-item">
-              <a class="nav-link" href="/home">Home</a>
-            </li> --}}
-            {{/if}}
-          </ul>
+    <nav class="navbar navbar-expand-lg navbar-light header">
+      <div class="container-fluid">
+        <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4" style="font-size: 20pt">
+          <i class="fas fa-hiking" style="color: green;"></i>
+          <span> Bootcamp Outfitters </span>
+        </div>
+
+        <div class="col-md-4">
+          <a class="navbar-brand" href="/">
+            <!-- <b>Sign Up Page</b>--></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              {{#if user}}
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">{{user.email}}, {{user.city}}</a>
+              </li>
+              {{/if}}
+            </ul>
+            <ul class="navbar-nav">
+              {{#unless user}}
+              <li class="nav-item">
+                <a class="nav-link" href="/">Sign up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              {{!-- <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+              </li> --}}
+              {{/unless}}
+              {{#if user}}
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+              {{!-- <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+              </li> --}}
+              {{/if}}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
