@@ -173,3 +173,19 @@ body {
   min-height: 110%;
   /* background-size: cover; */
 }
+
+#inlineFormInput
+{
+  width: 75%; 
+}
+
+.dropdown
+{
+  width:25%;
+  margin-left: 0px;
+}
+
+.formSearch
+{
+  width:250px;
+}
