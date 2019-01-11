@@ -84,12 +84,25 @@ $(document).ready(function () {
                 if (trailInfo.difficulty === "blue") {
                     difficulty = "Medium";
                 }
-                else if (trailInfo.difficulty === "blueblack") {
+                else if (trailInfo.difficulty === "blueBlack") {
                     difficulty = "Hard";
                 }
                 else if (trailInfo.difficulty === "greenBlue") {
                     difficulty = "Easy";
                 }
+
+                else if (trailInfo.difficulty === "green") {
+                    difficulty = "Easy";
+                }
+
+                else if (trailInfo.difficulty === "black") {
+                    difficulty = "Hard";
+                }
+
+                else if (trailInfo.difficulty === "dblack") {
+                    difficulty = "ExtremelyHard";
+                }
+
                 var newDiv = $("<div>").addClass("card card-trail mt-4");
 
                 newDiv.attr("data-actNum", trailInfo.id)
@@ -107,7 +120,7 @@ $(document).ready(function () {
                 newIMG.addClass("trailImg card-image-top");
                 var trailIMG = trailInfo.imgSmall;
                 if (trailIMG == '') {
-                    trailIMG = "https://image.ibb.co/cxZnrn/defaulthiker240.png";
+                    trailIMG = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYZnN0W990Rs6d4UGDcD_wO2mLZ-j8Q-AD_WibHGs5ztvRrz9L";
                 };
                 newIMG.attr("src", trailIMG);
 
