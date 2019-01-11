@@ -93,7 +93,6 @@ $(document).ready(function() {
                 else if (trailInfo.difficulty === "greenBlue") {
                     difficulty = "Easy";
                 }
-<<<<<<< HEAD
 
                 else if (trailInfo.difficulty === "green") {
                     difficulty = "Easy";
@@ -108,9 +107,7 @@ $(document).ready(function() {
                 }
 
                 var newDiv = $("<div>").addClass("card card-trail mt-4");
-=======
                 var newDiv = $("<div>").addClass("card card-trail mt-3 mb-3");
->>>>>>> a93fe293e2170b2de7f693dbef7d61549fef88ca
 
                 newDiv.attr("data-actNum", trailInfo.id)
                     .attr("data-actName", trailInfo.name)
