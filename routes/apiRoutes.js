@@ -146,6 +146,20 @@ module.exports = function (app) {
     req.logout();
     res.redirect("/");
   });
+
+
+
+  app.put("/api/examples/:id", isAuthenticated, function (req, res) {
+    db.Example.update({
+      complete: req.body.complete
+    },{ 
+      where: { 
+        id: req.params.id 
+      } 
+    }).then(function (dbExample) {
+      res.json(dbExample);
+    });
+  });
 };
 
 

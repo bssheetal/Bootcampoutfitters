@@ -104,10 +104,21 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-API.updateExamples()
+// handleUpdateBtnClick is called with the check button is clicked
+
+var handleUpdateBtnClick = function () {
+  var idToUpdate = $(this)
+  .parent()
+  .attr("data-id");
+API.updateExamples(idToUpdate).then(function() {
+  refreshExamples();
+  $("#bucketDiv").load(document.URL + " #bucketDiv");
+});
+}
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 $(document).on("click", ".delete", handleDeleteBtnClick);
+$(document).on("click", ".complete", handleUpdateBtnClick);

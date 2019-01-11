@@ -265,8 +265,9 @@ $(document).ready(function () {
         e.preventDefault();
 
         let idtoComplete = $(this).parent().attr("data-complete");
+        let id = $(this).parent().attr("data-id");
         console.log(idtoComplete);
-        if (idtoComplete){
+        if (!idtoComplete){
             idtoComplete = false;
         }else {
             idtoComplete = true;
@@ -281,7 +282,7 @@ let idUpload = {
                 "Content-Type": "application/json"
             },
             type: "PUT",
-            url: "/api/examples",
+            url: "/api/examples/" + id,
             data: JSON.stringify(idUpload)
         })
         .then(function (data) {
