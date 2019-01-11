@@ -81,14 +81,23 @@
     </form>
     <h3>Bucket List:</h3>
     <div id="bucketDiv">
-      <ul id="example-list" class="list-group">
+    <ul id="example-list" class="list-group">
+      {{#each user.Examples}}
+      <li data-id="{{this.id}}" data-complete={{this.complete}} class="list-group-item">
+        <a href="example/{{this.id}}">{{this.text}}</a>
+        <button class="btn btn-danger float-right delete">ｘ</button>
+           <button class="btn btn-success float-right complete">&#10003</button>
+      </li>
+      {{/each}}
+    </ul>
+      {{!-- <ul id="example-list" class="list-group">
         {{#each user.Examples}}
         <li data-id="{{this.id}}" class="list-group-item">
           <a href="example/{{this.id}}">{{this.text}}</a>
           <button class="btn btn-danger float-right delete">ｘ</button>
         </li>
         {{/each}}
-      </ul>
+      </ul> --}}
     </div>
   </div>
 
