@@ -26,7 +26,12 @@ module.exports = function (app) {
     db.Example.create({
       UserId: req.user.id,
       text: req.body.text,
-      description: req.body.description
+      description: req.body.description,
+      lengthOfTrail: req.body.lengthOfTrail,
+      difficulty: req.body.difficulty,
+      summary: req.body.summary,
+      ascent: req.body.ascent,
+      descent: req.body.descent
     }).then(function (dbExample) {
       res.json(dbExample);
     });
@@ -72,21 +77,21 @@ module.exports = function (app) {
       });
   });
 
-  app.get("/login/:id",function (req, res) {
+  app.get("/login/:id", function (req, res) {
 
     db.User.findAll({
       where: {
         id: req.params.id
       }
-    }).then(function(response) {    
+    }).then(function (response) {
       res.send(response);
 
-         
+
     });
   });
-  
-  
-   app.get("/hiking", function (req, res) {
+
+
+  app.get("/hiking", function (req, res) {
     var lat;
     var long;
     var googleMapsClient = geocode.createClient({
@@ -135,7 +140,7 @@ module.exports = function (app) {
     });
   });
 
- 
+
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
