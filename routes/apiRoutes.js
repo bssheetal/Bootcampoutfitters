@@ -8,7 +8,7 @@ var rei_hiking = keys.hike.id;
 var geocode_key = keys.geocode.id;
 var geocode = require("@google/maps");
 var weather = require("weather-js");
-
+var region;
 module.exports = function(app) {
   // Get all examples
   app.get("/api/examples", isAuthenticated, function(req, res) {
@@ -56,6 +56,7 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
+    region=req.body.city;
     db.User.create({
       email: req.body.email,
       password: req.body.password,
