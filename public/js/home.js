@@ -275,12 +275,14 @@ $(document).ready(function () {
 
         let idtoComplete = $(this).parent().attr("data-complete");
         let id = $(this).parent().attr("data-id");
-        console.log(idtoComplete);
-        if (!idtoComplete) {
+        console.log("in:  " + idtoComplete);
+        if (idtoComplete == true) {
             idtoComplete = false;
         } else {
-            idtoComplete = true;
+            idtoComplete = false;
         }
+        console.log("Out:  " + idtoComplete);
+
         // PUT request to change complete field to true/false
         let idUpload = {
             complete: idtoComplete
