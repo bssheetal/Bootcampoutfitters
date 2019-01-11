@@ -77,6 +77,8 @@ var handleFormSubmit = function(event) {
 
   API.saveExample(example).then(function() {
     refreshExamples();
+       // Refresh only the div and not the entire page so as to retain data from get
+       $("#bucketDiv").load(document.URL + " #bucketDiv");
   });
 
   $exampleText.val("");

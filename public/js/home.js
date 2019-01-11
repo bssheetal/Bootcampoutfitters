@@ -131,7 +131,6 @@ $(document).ready(function () {
 
         })
     }
-    // On click listener for the add button attached to each item built in the get request above
 
     function getweatherinfo() {
         var region = $("#inlineFormInput").val().trim();
@@ -194,6 +193,8 @@ $(document).ready(function () {
             $("#weatherDiv").append(forecastDiv);
         });
     }
+
+        // On click listener for the add button attached to each item built in the get request above
     $(document).on("click", ".addButton", function (e) {
         e.preventDefault();
         let trailName = ($(this).data("actname"));
@@ -215,7 +216,7 @@ $(document).ready(function () {
         })
             .then(function (data) {
                 // append the new bucket list item to the bucket list
-                $("#example-list").append(`<li>${data.text}</li>`);
+                $("#example-list").append(`<li data-complete="0">${data.text}</li>`);
                 // Refresh only the div and not the entire page so as to retain data from get
                 $("#bucketDiv").load(document.URL + " #bucketDiv");
             })
@@ -226,20 +227,28 @@ $(document).ready(function () {
     });
 
     // On click listener for the complete button
-
     $(document).on("click", ".complete", function (e) {
         e.preventDefault();
 
-        let idtoComplete = $(this).parent().attr("data-id");
+        let idtoComplete = $(this).parent().attr("data-complete");
+        console.log(idtoComplete);
+        if (idtoComplete){
+            idtoComplete = false;
+        }else {
+            idtoComplete = true;
+        }
     
 // Post request to change complete field to true/false
+let idUpload = {
+    complete: idtoComplete
+}
         $.ajax({
             headers: {
                 "Content-Type": "application/json"
             },
             type: "PUT",
             url: "/api/examples",
-            data: JSON.stringify()
+            data: JSON.stringify(idUpload)
         })
         .then(function (data) {
             // append the new bucket list item to the bucket list
