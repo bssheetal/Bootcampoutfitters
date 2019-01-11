@@ -59,10 +59,11 @@ $(document).ready(function () {
         getweatherinfo();
     });
 
+
     function gethikinginfo() {
-        var region = $("#inlineFormInput")
-            .val()
-            .trim();
+        var region = $("#inlineFormInput").val().trim();
+        var miles = $("#inputGroupSelect01 option:selected").text();
+        console.log(miles);
         console.log("hikingregion is" + city);
         if (region === " " || region.length == 0 || region == null) {
             var searchinfo = {
