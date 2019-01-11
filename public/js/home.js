@@ -128,20 +128,16 @@ $(document).ready(function () {
     $(document).on("click", ".complete", function (e) {
         e.preventDefault();
 
-        let upload = {
-            text: trailName,
-            description: trailLocation
-        };
-        console.log(trailLocation);
-        console.log(trailName);
-// Post request to add the activity associated with each add button
+        let idtoComplete = $(this).parent().attr("data-id");
+    
+// Post request to change complete field to true/false
         $.ajax({
             headers: {
                 "Content-Type": "application/json"
             },
-            type: "POST",
+            type: "PUT",
             url: "/api/examples",
-            data: JSON.stringify(upload)
+            data: JSON.stringify()
         })
         .then(function (data) {
             // append the new bucket list item to the bucket list
