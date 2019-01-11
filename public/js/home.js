@@ -1,6 +1,5 @@
 $(document).ready(function () {
     var city;
-  
     function firstrunner() {
         var userId = $(".search").attr("data-id");
         console.log("user id is " + userId);
@@ -13,8 +12,6 @@ $(document).ready(function () {
     }
 
     firstrunner();
-
-
 
     function slideshowbackgroundimages() {
         var images = [
@@ -58,7 +55,6 @@ $(document).ready(function () {
     $("#searchButton").on("click", function (e) {
         e.preventDefault();
         $("#hikingDiv").empty();
-
         gethikinginfo();
         getweatherinfo();
     });
@@ -228,6 +224,8 @@ $(document).ready(function () {
             $("#weatherDiv").append(forecastDiv);
         });
     }
+
+    // On click listener for the add button attached to each item built in the get request above
     $(document).on("click", ".addButton", function (e) {
         e.preventDefault();
         let trailName = $(this).data("actname");
@@ -270,54 +268,92 @@ $(document).ready(function () {
             });
     });
 
-    $(document).on("click", ".trailImg", function () {
-        console.log("im clicked");
-        $(".insidemodal").empty();
-        var modaldiv = $("<div>");
-        modaldiv.addClass("insidemodal");
-        var newP = $("<p>");
-        var name = $(this)
-            .closest("div")
-            .attr("data-actName");
-        console.log("this is pointing to" + name);
-        newP.append(`<b>${name}</b>`);
-        var newIMG = $("<img>");
-        var trailIMG = $(this).attr("src");
-        newIMG.attr("src", trailIMG);
-        var lengthp = $("<p>");
-        var Length = $(this)
-            .closest("div")
-            .attr("data-actLength");
-        lengthp.append(`<p><b>Length of trail:</b> ${Length} miles.</p>`);
-        var diffp = $("<p>");
-        var difflevel = $(this)
-            .closest("div")
-            .attr("data-actDiff");
-        diffp.append(`<p><b>Difficulty:</b> ${difflevel}</p>`);
-        var summary = $(this)
-            .closest("div")
-            .attr("data-summary");
-        console.log(name);
-        var newsummary = $("<p>");
-        newsummary.append(`<p><b>Description:</b> "${summary}</p>`);
-        var ascentp = $("<p>");
-        var Ascent = $(this)
-            .closest("div")
-            .attr("data-ascent");
-        var Descent = $(this)
-            .closest("div")
-            .attr("data-descent");
-        ascentp.append(
-            `<p><b>Ascent:</b>${Ascent}      <b>Descent:</b>${Descent}</p>`
-        );
-        modaldiv.append(newP);
-        modaldiv.append(newIMG);
-        modaldiv.append(lengthp);
-        modaldiv.append(diffp);
-        modaldiv.append(newsummary);
-        modaldiv.append(ascentp);
 
-        $(".modal-body").append(modaldiv);
-        $("#myModal").modal("show");
+    // On click listener for the complete button
+    $(document).on("click", ".complete", function (e) {
+        e.preventDefault();
+
+        let idtoComplete = $(this).parent().attr("data-complete");
+        let id = $(this).parent().attr("data-id");
+        console.log(idtoComplete);
+        if (!idtoComplete) {
+            idtoComplete = false;
+        } else {
+            idtoComplete = true;
+        }
+        // PUT request to change complete field to true/false
+        let idUpload = {
+            complete: idtoComplete
+        }
+        $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "PUT",
+            url: "/api/examples/" + id,
+            data: JSON.stringify(idUpload)
+        })
+            .then(function (data) {
+                // append the new bucket list item to the bucket list
+                $("#example-list").append(`<li>${data.text}</li>`);
+                // Refresh only the div and not the entire page so as to retain data from get
+                $("#bucketDiv").load(document.URL + " #bucketDiv");
+            })
+            .catch(function (err) {
+                console.log(err);
+                alert(err.responseText);
+            });
+        });
+
+
+        $(document).on("click", ".trailImg", function () {
+            console.log("im clicked");
+            $(".insidemodal").empty();
+            var modaldiv = $("<div>");
+            modaldiv.addClass("insidemodal");
+            var newP = $("<p>");
+            var name = $(this)
+                .closest("div")
+                .attr("data-actName");
+            console.log("this is pointing to" + name);
+            newP.append(`<b>${name}</b>`);
+            var newIMG = $("<img>");
+            var trailIMG = $(this).attr("src");
+            newIMG.attr("src", trailIMG);
+            var lengthp = $("<p>");
+            var Length = $(this)
+                .closest("div")
+                .attr("data-actLength");
+            lengthp.append(`<p><b>Length of trail:</b> ${Length} miles.</p>`);
+            var diffp = $("<p>");
+            var difflevel = $(this)
+                .closest("div")
+                .attr("data-actDiff");
+            diffp.append(`<p><b>Difficulty:</b> ${difflevel}</p>`);
+            var summary = $(this)
+                .closest("div")
+                .attr("data-summary");
+            console.log(name);
+            var newsummary = $("<p>");
+            newsummary.append(`<p><b>Description:</b> "${summary}</p>`);
+            var ascentp = $("<p>");
+            var Ascent = $(this)
+                .closest("div")
+                .attr("data-ascent");
+            var Descent = $(this)
+                .closest("div")
+                .attr("data-descent");
+            ascentp.append(
+                `<p><b>Ascent:</b>${Ascent}      <b>Descent:</b>${Descent}</p>`
+            );
+            modaldiv.append(newP);
+            modaldiv.append(newIMG);
+            modaldiv.append(lengthp);
+            modaldiv.append(diffp);
+            modaldiv.append(newsummary);
+            modaldiv.append(ascentp);
+
+            $(".modal-body").append(modaldiv);
+            $("#myModal").modal("show");
+        });
     });
-});
