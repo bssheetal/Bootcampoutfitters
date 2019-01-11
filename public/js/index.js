@@ -28,6 +28,12 @@ var API = {
       url: "api/examples/" + id,
       type: "DELETE"
     });
+  },
+  updateExamples: function(id) {
+    return $.ajax({
+      url: "api/examples/" + id,
+      type: "PUT"
+    });
   }
 };
 
@@ -77,6 +83,8 @@ var handleFormSubmit = function(event) {
 
   API.saveExample(example).then(function() {
     refreshExamples();
+       // Refresh only the div and not the entire page so as to retain data from get
+       $("#bucketDiv").load(document.URL + " #bucketDiv");
   });
 
   $exampleText.val("");
@@ -96,8 +104,21 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+// handleUpdateBtnClick is called with the check button is clicked
+
+var handleUpdateBtnClick = function () {
+  var idToUpdate = $(this)
+  .parent()
+  .attr("data-id");
+API.updateExamples(idToUpdate).then(function() {
+  refreshExamples();
+  $("#bucketDiv").load(document.URL + " #bucketDiv");
+});
+}
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 $(document).on("click", ".delete", handleDeleteBtnClick);
+$(document).on("click", ".complete", handleUpdateBtnClick);

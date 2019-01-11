@@ -2,6 +2,10 @@ module.exports = function(sequelize, DataTypes) {
   var Example = sequelize.define("Example", {
     text: DataTypes.STRING,
     description: DataTypes.TEXT,
+    complete: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     lengthOfTrail: DataTypes.FLOAT,
     difficulty: DataTypes.STRING,
     summary: DataTypes.STRING,
