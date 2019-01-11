@@ -19,17 +19,13 @@
             </div>
           </div>
           <div class="col-auto">
-            <div class="dropdown">
-              <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Miles</option>
+              <option value="5">Five</option>
+              <option value="10">Ten</option>
+              <option value="15">Fifteen</option>
+              <option value="20">Twenty</option>
+            </select>
           </div>
           <div class="col-auto">
             <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
@@ -81,15 +77,15 @@
     </form>
     <h3>Bucket List:</h3>
     <div id="bucketDiv">
-    <ul id="example-list" class="list-group">
-      {{#each user.Examples}}
-      <li data-id="{{this.id}}" data-complete={{this.complete}} class="list-group-item">
-        <a href="example/{{this.id}}">{{this.text}}</a>
-        <button class="btn btn-danger float-right delete">ｘ</button>
-           <button class="btn btn-success float-right complete">&#10003</button>
-      </li>
-      {{/each}}
-    </ul>
+      <ul id="example-list" class="list-group">
+        {{#each user.Examples}}
+        <li data-id="{{this.id}}" data-complete={{this.complete}} class="list-group-item">
+          <a href="example/{{this.id}}">{{this.text}}</a>
+          <button class="btn btn-danger float-right delete">ｘ</button>
+          <button class="btn btn-success float-right complete">&#10003</button>
+        </li>
+        {{/each}}
+      </ul>
       {{!-- <ul id="example-list" class="list-group">
         {{#each user.Examples}}
         <li data-id="{{this.id}}" class="list-group-item">
