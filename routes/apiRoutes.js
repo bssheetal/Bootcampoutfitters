@@ -97,7 +97,7 @@ module.exports = function (app) {
     var googleMapsClient = geocode.createClient({
       key: geocode_key
     });
-
+    maxdistance=15;
     googleMapsClient.geocode(
       {
         components: {
@@ -115,7 +115,7 @@ module.exports = function (app) {
             lat +
             "&lon=" +
             long +
-            "&maxDistance=10&key=" +
+            "&maxDistance="+maxdistance+"&key=" +
             rei_hiking;
           console.log(hikingqueryurl);
           axios.get(hikingqueryurl).then(function (response) {
