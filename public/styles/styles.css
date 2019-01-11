@@ -140,3 +140,21 @@ body {
   width: 250px;
   /* height: 200px; */
 }
+
+/* Weather Syling Info */
+.forecastFont {
+  font-size: 10px;
+}
+.forecast, .daydiv {
+  border: 1px solid #000;
+}
+.daydiv {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.forecast {
+display: flex;
+}

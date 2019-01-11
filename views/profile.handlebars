@@ -9,7 +9,7 @@
         </div>
       </div>
     </div>
-    <div class="search">
+    <div class="search" data-id={{user.id}}>
       <form class="formSearch">
         <div class="form-row align-items-center">
           <div class="col-auto">
@@ -78,6 +78,10 @@
     </ul>
     </div>
   </div>
+
+  <div class="col-md-3">
+  <div id="weatherDiv"></div>
+  </div>
 </div>
 
 
@@ -114,13 +118,13 @@
         <div class="modal-content">
           <div class="modal-header">
             <i class="fas fa-hiking"></i>
-            <h5 class="myModalLabel" id="exampleModalCenterTitle">Trail Map</h5>
+            <h5 class="myModalLabel" id="exampleModalCenterTitle">Trail Info</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <h6>TrailMap</h6>
+            
 
           </div>
           <div class="modal-footer">

@@ -2,12 +2,13 @@ require("dotenv").config();
 var db = require("../models");
 var passport = require("../config/passport");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
-var axios = require('axios');
-var keys = require("../keys.js")
+var axios = require("axios");
+var keys = require("../keys.js");
 var rei_hiking = keys.hike.id;
 var geocode_key = keys.geocode.id;
-var geocode = require('@google/maps');
-
+var geocode = require("@google/maps");
+var weather = require("weather-js");
+var region;
 module.exports = function (app) {
   // Get all examples
   app.get("/api/examples", isAuthenticated, function (req, res) {
@@ -55,6 +56,7 @@ module.exports = function (app) {
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
     console.log(req.body);
+
     db.User.create({
       email: req.body.email,
       password: req.body.password,
@@ -70,65 +72,75 @@ module.exports = function (app) {
       });
   });
 
-  app.get("/hiking", function (req, res) {
+  app.get("/login/:id",function (req, res) {
+
+    db.User.findAll({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(response) {    
+      res.send(response);
+
+         
+    });
+  });
+  
+  
+   app.get("/hiking", function (req, res) {
     var lat;
     var long;
     var googleMapsClient = geocode.createClient({
       key: geocode_key
     });
 
-    googleMapsClient.geocode({
-      components:
+    googleMapsClient.geocode(
       {
-        locality: req.query.region,
-        country: 'USA'
+        components: {
+          locality: req.query.region,
+          country: "USA"
+        }
+      },
+      function (err, response) {
+        if (!err) {
+          lat = response.json.results[0].geometry.location.lat;
+          long = response.json.results[0].geometry.location.lng;
+
+          var hikingqueryurl =
+            "https://www.hikingproject.com/data/get-trails?lat=" +
+            lat +
+            "&lon=" +
+            long +
+            "&maxDistance=10&key=" +
+            rei_hiking;
+          console.log(hikingqueryurl);
+          axios.get(hikingqueryurl).then(function (response) {
+            var JSONDATA = response.data.trails;
+            res.send(JSONDATA);
+          });
+        }
       }
-    }, function (err, response) {
-      if (!err) {
-        lat = response.json.results[0].geometry.location.lat;
-        long = response.json.results[0].geometry.location.lng;
+    );
+  });
 
-        var hikingqueryurl = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=10&key=" + rei_hiking;
-        console.log(hikingqueryurl);
-        axios.get(hikingqueryurl).then(function (response) {
-
-          var JSONDATA = response.data.trails;
-          res.send(JSONDATA);
-    
-        });
+  app.get("/weather", function (req, res) {
+    weather.find({ search: req.query.region, degreeType: "F" }, function (
+      err,
+      result
+    ) {
+      if (err) {
+        console.log(err);
       }
-    });
-
-  })
-
-  app.post("/api/search",function(req,res)
-  {
-    db.Searchregion.create({
-      latitude:req.body.latitude,
-      longitude: req.body.longitude,
-      UserId:req.body.Id
-    }).then(function(data)
-    {
-      res.json(data);
+      // var weatherforecast = JSON.stringify(result, null, 2);
+      res.send(result);
     });
   });
 
+ 
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
-
-  
 };
 
 
-function gethikinginfo(hikingqueryurl)
-  {
-    axios.get(hikingqueryurl).then(function (response) {
-
-      var JSONDATA = response.data.trails;
-      return JSONDATA;
-
-    })
-  }
