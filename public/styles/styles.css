@@ -142,19 +142,27 @@ body {
 }
 
 /* Weather Syling Info */
-.forecastFont {
-  font-size: 10px;
-}
-.forecast, .daydiv {
-  border: 1px solid #000;
-}
+
 .daydiv {
-  width: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 150px;
 }
-.forecast {
+#weatherDiv {
+  text-align: left;
+  margin-top:10px;
+}
+/* .forecast {
 display: flex;
 }
+.forecastFont {
+  font-size: 12px;
+}
+.forecast, .daydiv {
+  border: 1px solid #000;
+} */
