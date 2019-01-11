@@ -62,16 +62,17 @@ $(document).ready(function () {
 
     function gethikinginfo() {
         var region = $("#inlineFormInput").val().trim();
-        var miles = $("#inputGroupSelect01 option:selected").text();
-        console.log(miles);
+        var miles = $("#inputGroupSelect01 option:selected").val();       
         console.log("hikingregion is" + city);
         if (region === " " || region.length == 0 || region == null) {
             var searchinfo = {
-                region: city
+                region: city,
+                miles:miles
             };
         } else {
             var searchinfo = {
-                region: region
+                region: region,
+                miles:miles
             };
         }
 
