@@ -12,6 +12,14 @@ $(document).ready(function() {
   }
 
   firstrunner();
+  $("#dropdown a").on('click',function() {
+    // e.preventDefault(); 
+    // var miles; 
+    // var seltext = $(this).text();
+    // miles=$("#dropdownMenuButton").text(seltext);
+    // console.log(miles);
+   
+}); 
 
   function slideshowbackgroundimages() {
     var images = [
@@ -63,6 +71,8 @@ $(document).ready(function() {
     var region = $("#inlineFormInput")
       .val()
       .trim();
+     
+    
     console.log("hikingregion is" + city);
     if (region === " " || region.length == 0 || region == null) {
       var searchinfo = {

@@ -97,7 +97,7 @@ module.exports = function (app) {
     var googleMapsClient = geocode.createClient({
       key: geocode_key
     });
-    maxdistance=15;
+    var maxdistance=15;
     googleMapsClient.geocode(
       {
         components: {
