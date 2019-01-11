@@ -39,6 +39,7 @@ $(document).ready(function () {
     $("#searchButton").on("click", function (e) {
         e.preventDefault();
         $("#hikingDiv").empty();
+
         region = $("#inlineFormInput").val().trim()
         var searchinfo = {
             region: region
@@ -63,7 +64,7 @@ $(document).ready(function () {
                 else if (trailInfo.difficulty === "greenBlue") {
                     difficulty = "Easy";
                 }
-                var newDiv = $("<div>").addClass("card card-trail mt-4");
+                var newDiv = $("<div>").addClass("card card-trail mt-3 mb-3");
 
                 newDiv.attr("data-actNum", trailInfo.id)
                     .attr("data-actName", trailInfo.name)
