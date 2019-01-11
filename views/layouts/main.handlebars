@@ -9,8 +9,8 @@
   {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> --}}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/styles.css">
-  <title>Home Page</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <title>Bootcamp Outfitters</title>
 </head>
 
 <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
@@ -60,6 +60,9 @@
   </header>
 
   <div class="container-fluid">
+    {{!-- Subtle Nature Audio first, then video (kat) --}}
+    {{!-- <iframe src="" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> --}}
+    <video autoplay muted loop id="myVideo"><source src="./media/videoloop-1.mp4" type="video/mp4" /></video>
     {{{body}}}
   </div>
 

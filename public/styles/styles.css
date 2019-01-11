@@ -141,8 +141,7 @@ body {
   /* height: 200px; */
 }
 
-/* Weather Syling Info */
-
+/* Weather Syling Info (kat) */
 .daydiv {
   display: flex;
   flex-direction: column;
@@ -157,12 +156,16 @@ body {
   text-align: left;
   margin-top:10px;
 }
-/* .forecast {
-display: flex;
+
+/* Nature Video: Home (kat) */
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  filter:opacity(75%);
+  z-index:-1;
+  top: -60px;
+  min-width: 110%;
+  min-height: 110%;
+  /* background-size: cover; */
 }
-.forecastFont {
-  font-size: 12px;
-}
-.forecast, .daydiv {
-  border: 1px solid #000;
-} */
