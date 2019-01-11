@@ -14,6 +14,7 @@ $(document).ready(function () {
     }
 
     firstrunner();
+
     function slideshowbackgroundimages() {
 
         var images = ["images/hero-01.jpg", "images/hero-02.jpg", "images/hero-03.jpg", "images/hero-04.jpg", "images/hero-05.jpg", "images/hero-06.jpg"];
@@ -84,13 +85,27 @@ $(document).ready(function () {
                 if (trailInfo.difficulty === "blue") {
                     difficulty = "Medium";
                 }
-                else if (trailInfo.difficulty === "blueblack") {
+                else if (trailInfo.difficulty === "blueBlack") {
                     difficulty = "Hard";
                 }
                 else if (trailInfo.difficulty === "greenBlue") {
                     difficulty = "Easy";
                 }
+
+                else if (trailInfo.difficulty === "green") {
+                    difficulty = "Easy";
+                }
+
+                else if (trailInfo.difficulty === "black") {
+                    difficulty = "Hard";
+                }
+
+                else if (trailInfo.difficulty === "dblack") {
+                    difficulty = "ExtremelyHard";
+                }
+
                 var newDiv = $("<div>").addClass("card card-trail mt-4");
+                var newDiv = $("<div>").addClass("card card-trail mt-3 mb-3");
 
                 newDiv.attr("data-actNum", trailInfo.id)
                     .attr("data-actName", trailInfo.name)
@@ -107,7 +122,7 @@ $(document).ready(function () {
                 newIMG.addClass("trailImg card-image-top");
                 var trailIMG = trailInfo.imgSmall;
                 if (trailIMG == '') {
-                    trailIMG = "https://image.ibb.co/cxZnrn/defaulthiker240.png";
+                    trailIMG = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYZnN0W990Rs6d4UGDcD_wO2mLZ-j8Q-AD_WibHGs5ztvRrz9L";
                 };
                 newIMG.attr("src", trailIMG);
 
@@ -119,7 +134,15 @@ $(document).ready(function () {
                 newB.append('<i class="fas fa-list"></i> Add to List').addClass("addButton btn-primary");
                 newB.attr("type", "submit")
                     .attr("data-actName", trailInfo.name)
-                    .attr("data-actLoc", trailInfo.location);
+                    .attr("data-actLoc", trailInfo.location)
+                    .attr("data-length", trailInfo.length)
+                    .attr("data-difficulty", difficulty)
+                    .attr("data-summary", trailInfo.summary)
+                    .attr("data-ascent", trailInfo.ascent)
+                    .attr("data-descent", trailInfo.descent);
+
+                    console.log(trailInfo);
+
                 newP.append(trailInfo.location);
                 newCardbody.append(newH);
                 newCardbody.append(newP);
@@ -199,12 +222,23 @@ $(document).ready(function () {
         e.preventDefault();
         let trailName = ($(this).data("actname"));
         let trailLocation = ($(this).data("actloc"));
+        let trailLength = $(this).data("length");
+        let trailDiff = $(this).data("difficulty");
+        let trailSummary = $(this).data("summary");
+        let trailAscent = $(this).data("ascent");
+        let trailDescent = $(this).data("descent");
         let upload = {
             text: trailName,
-            description: trailLocation
+            description: trailLocation,
+            lengthOfTrail: trailLength,
+            difficulty: trailDiff,
+            summary: trailSummary,
+            ascent: trailAscent,
+            descent: trailDescent
         };
         console.log(trailLocation);
         console.log(trailName);
+
         // Post request to add the activity associated with each add button
         $.ajax({
             headers: {

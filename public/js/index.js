@@ -28,6 +28,12 @@ var API = {
       url: "api/examples/" + id,
       type: "DELETE"
     });
+  },
+  updateExamples: function(id) {
+    return $.ajax({
+      url: "api/examples/" + id,
+      type: "PUT"
+    });
   }
 };
 
@@ -97,6 +103,8 @@ var handleDeleteBtnClick = function() {
     $("#bucketDiv").load(document.URL + " #bucketDiv");
   });
 };
+
+API.updateExamples()
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);

@@ -5,7 +5,12 @@ module.exports = function(sequelize, DataTypes) {
     complete: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    }
+    },
+    lengthOfTrail: DataTypes.FLOAT,
+    difficulty: DataTypes.STRING,
+    summary: DataTypes.STRING,
+    ascent: DataTypes.INTEGER,
+    descent: DataTypes.INTEGER
   });
 
   Example.associate = function(models) {
