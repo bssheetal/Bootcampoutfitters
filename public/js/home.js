@@ -105,6 +105,9 @@ $(document).ready(function () {
         })
 
         $.get("/weather", searchinfo, function(response) {
+            // Clears div, so doesn't show same info again
+            $("#weatherDiv").empty();
+
             console.log(response);
             var city = response[0].current.observationpoint;
       
@@ -113,7 +116,8 @@ $(document).ready(function () {
             var forecastDiv = $('<div class = "forecast">');
             for (var i = 0; i < response[0].forecast.length; i++) {
               var currentDay = response[0].forecast[i];
-      
+              var conditionsImgs = `http://blob.weather.microsoft.com/static/weather4/en-us/law/` + currentDay.skycodeday + ".gif"
+
               console.log(currentDay);
               var dayDiv = $('<div class = "daydiv">');
               var dateDiv = $(
@@ -126,7 +130,7 @@ $(document).ready(function () {
                 "<p class = 'forecastFont'>" + currentDay.skytextday + "</p>"
               );
               var skycodeDiv = $(
-                "<p class = 'forecastFont'>skycodeday: " + currentDay.skycodeday + "</p>"
+                "<img src = "+ conditionsImgs +" class = 'forecastFont'>"
               );
               var highDiv = $(
                 "<p class = 'forecastFont'> High: " + currentDay.high + "\u00B0F" + "</p>"
