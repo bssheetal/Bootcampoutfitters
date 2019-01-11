@@ -14,6 +14,7 @@ $(document).ready(function () {
     }
 
     firstrunner();
+
     function slideshowbackgroundimages() {
 
         var images = ["images/hero-01.jpg", "images/hero-02.jpg", "images/hero-03.jpg", "images/hero-04.jpg", "images/hero-05.jpg", "images/hero-06.jpg"];
@@ -51,12 +52,6 @@ $(document).ready(function () {
     $("#searchButton").on("click", function (e) {
         e.preventDefault();
         $("#hikingDiv").empty();
-<<<<<<< HEAD
-
-        region = $("#inlineFormInput").val().trim()
-        var searchinfo = {
-            region: region
-=======
         gethikinginfo();
         getweatherinfo();
     });
@@ -75,7 +70,6 @@ $(document).ready(function () {
             var searchinfo = {
                 region: region
             }
->>>>>>> 7542fb0810655f401bb8751276a14b14ecaed774
         }
 
 
@@ -126,7 +120,15 @@ $(document).ready(function () {
                 newB.append('<i class="fas fa-list"></i> Add to List').addClass("addButton btn-primary");
                 newB.attr("type", "submit")
                     .attr("data-actName", trailInfo.name)
-                    .attr("data-actLoc", trailInfo.location);
+                    .attr("data-actLoc", trailInfo.location)
+                    .attr("data-length", trailInfo.length)
+                    .attr("data-difficulty", difficulty)
+                    .attr("data-summary", trailInfo.summary)
+                    .attr("data-ascent", trailInfo.ascent)
+                    .attr("data-descent", trailInfo.descent);
+
+                    console.log(trailInfo);
+
                 newP.append(trailInfo.location);
                 newCardbody.append(newH);
                 newCardbody.append(newP);
@@ -205,12 +207,23 @@ $(document).ready(function () {
         e.preventDefault();
         let trailName = ($(this).data("actname"));
         let trailLocation = ($(this).data("actloc"));
+        let trailLength = $(this).data("length");
+        let trailDiff = $(this).data("difficulty");
+        let trailSummary = $(this).data("summary");
+        let trailAscent = $(this).data("ascent");
+        let trailDescent = $(this).data("descent");
         let upload = {
             text: trailName,
-            description: trailLocation
+            description: trailLocation,
+            lengthOfTrail: trailLength,
+            difficulty: trailDiff,
+            summary: trailSummary,
+            ascent: trailAscent,
+            descent: trailDescent
         };
         console.log(trailLocation);
         console.log(trailName);
+
         // Post request to add the activity associated with each add button
         $.ajax({
             headers: {
