@@ -12,14 +12,25 @@
     <div class="search" data-id={{user.id}}>
       <form class="formSearch">
         <div class="form-row align-items-center">
-          <div class="col-auto">
-            <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
-            <div class="invalid-feedback">
-              Please enter a location.
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
+              <div class="invalid-feedback">
+                Please enter a location.
+              </div>
             </div>
-          </div>
-          <div class="col-auto">
-            <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
+            <div class="col-md-4">
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Miles</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
+            </div>
           </div>
         </div>
       </form>
@@ -33,14 +44,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <i class="fas fa-hiking"></i>
-            <h5 class="myModalLabel" id="exampleModalCenterTitle">Trail Map</h5>
+            <h5 class="myModalLabel" id="exampleModalCenterTitle"></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <h6>TrailMap</h6>
 
           </div>
           <div class="modal-footer">
@@ -69,12 +78,21 @@
     <div id="bucketDiv">
       <ul id="example-list" class="list-group">
         {{#each user.Examples}}
+        <li data-id="{{this.id}}" data-complete={{this.complete}} class="list-group-item">
+          <a href="example/{{this.id}}">{{this.text}}</a>
+          <button class="btn btn-danger float-right delete">ｘ</button>
+          <button class="btn btn-success float-right complete">&#10003</button>
+        </li>
+        {{/each}}
+      </ul>
+      {{!-- <ul id="example-list" class="list-group">
+        {{#each user.Examples}}
         <li data-id="{{this.id}}" class="list-group-item">
           <a href="example/{{this.id}}">{{this.text}}</a>
           <button class="btn btn-danger float-right delete">ｘ</button>
         </li>
         {{/each}}
-      </ul>
+      </ul> --}}
     </div>
   </div>
 

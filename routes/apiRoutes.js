@@ -11,7 +11,7 @@ var weather = require("weather-js");
 var region;
 module.exports = function (app) {
   // Get all examples
-  app.get("/api/examples", isAuthenticated, function (req, res) {
+  app.get("/api/items", isAuthenticated, function (req, res) {
     db.Example.findAll({
       where: {
         UserId: req.user.id
@@ -22,7 +22,7 @@ module.exports = function (app) {
   });
 
   // Create a new example
-  app.post("/api/examples", isAuthenticated, function (req, res) {
+  app.post("/api/items", isAuthenticated, function (req, res) {
     db.Example.create({
       UserId: req.user.id,
       text: req.body.text,
@@ -38,7 +38,7 @@ module.exports = function (app) {
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", isAuthenticated, function (req, res) {
+  app.delete("/api/items/:id", isAuthenticated, function (req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function (
       dbExample
     ) {
@@ -97,7 +97,8 @@ module.exports = function (app) {
     var googleMapsClient = geocode.createClient({
       key: geocode_key
     });
-
+    var maxdistance= req.query.miles;
+    console.log("Miles"+maxdistance);
     googleMapsClient.geocode(
       {
         components: {
@@ -115,7 +116,7 @@ module.exports = function (app) {
             lat +
             "&lon=" +
             long +
-            "&maxDistance=10&key=" +
+            "&maxDistance="+maxdistance+"&key=" +
             rei_hiking;
           console.log(hikingqueryurl);
           axios.get(hikingqueryurl).then(function (response) {
@@ -146,6 +147,21 @@ module.exports = function (app) {
     req.logout();
     res.redirect("/");
   });
+
+
+// PUT route for check button
+  app.put("/api/items/:id", isAuthenticated, function (req, res) {
+    db.Example.update({
+      complete: req.body.complete
+    },{ 
+      where: { 
+        id: req.params.id 
+      } 
+    }).then(function (dbExample) {
+      res.json(dbExample);
+    });
+  });
 };
+
 
 
