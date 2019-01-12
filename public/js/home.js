@@ -254,7 +254,7 @@ $(document).ready(function () {
                 "Content-Type": "application/json"
             },
             type: "POST",
-            url: "/api/examples",
+            url: "/api/items",
             data: JSON.stringify(upload)
         })
             .then(function (data) {
@@ -293,7 +293,7 @@ $(document).ready(function () {
                 "Content-Type": "application/json"
             },
             type: "PUT",
-            url: "/api/examples/" + id,
+            url: "/api/items/" + id,
             data: JSON.stringify(idUpload)
         })
             .then(function (data) {
@@ -369,3 +369,4 @@ $(document).ready(function () {
         $("#myModal").modal("show");
     });
 });
+

@@ -13,19 +13,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/items",
       data: JSON.stringify(example)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/items",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/items/" + id,
       type: "DELETE"
     });
   },
@@ -33,7 +33,7 @@ var API = {
 // Added PUT request to the object for UPDATE functionality
   updateExamples: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/items/" + id,
       type: "PUT"
     });
   }
@@ -45,7 +45,7 @@ var refreshExamples = function() {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
         .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .attr("href", "/item/" + example.id);
 
       var $li = $("<li>")
         .attr({
@@ -79,7 +79,7 @@ var handleFormSubmit = function(event) {
   };
 
   if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+    alert("You must enter an item text and description!");
     return;
   }
 
