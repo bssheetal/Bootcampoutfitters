@@ -11,7 +11,7 @@ var weather = require("weather-js");
 var region;
 module.exports = function (app) {
   // Get all examples
-  app.get("/api/examples", isAuthenticated, function (req, res) {
+  app.get("/api/items", isAuthenticated, function (req, res) {
     db.Example.findAll({
       where: {
         UserId: req.user.id
@@ -22,7 +22,7 @@ module.exports = function (app) {
   });
 
   // Create a new example
-  app.post("/api/examples", isAuthenticated, function (req, res) {
+  app.post("/api/items", isAuthenticated, function (req, res) {
     db.Example.create({
       UserId: req.user.id,
       text: req.body.text,
@@ -38,7 +38,7 @@ module.exports = function (app) {
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", isAuthenticated, function (req, res) {
+  app.delete("/api/items/:id", isAuthenticated, function (req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function (
       dbExample
     ) {
@@ -150,7 +150,7 @@ module.exports = function (app) {
 
 
 // PUT route for check button
-  app.put("/api/examples/:id", isAuthenticated, function (req, res) {
+  app.put("/api/items/:id", isAuthenticated, function (req, res) {
     db.Example.update({
       complete: req.body.complete
     },{ 
