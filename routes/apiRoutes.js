@@ -149,7 +149,7 @@ module.exports = function (app) {
   });
 
 
-
+// PUT route for check button
   app.put("/api/examples/:id", isAuthenticated, function (req, res) {
     db.Example.update({
       complete: req.body.complete

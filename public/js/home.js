@@ -154,7 +154,6 @@ $(document).ready(function () {
             }
         });
     }
-    // On click listener for the add button attached to each item built in the get request above
 
     function getweatherinfo() {
         var region = $("#inlineFormInput")
@@ -227,9 +226,10 @@ $(document).ready(function () {
         });
     }
 
-    // On click listener for the add button attached to each item built in the get request above
+    // On click listener for the add to list button
     $(document).on("click", ".addButton", function (e) {
         e.preventDefault();
+        // Attaching data attributes to the button on UI
         let trailName = $(this).data("actname");
         let trailLocation = $(this).data("actloc");
         let trailLength = $(this).data("length");
@@ -237,6 +237,7 @@ $(document).ready(function () {
         let trailSummary = $(this).data("summary");
         let trailAscent = $(this).data("ascent");
         let trailDescent = $(this).data("descent");
+        // Setting object with above to send to DB
         let upload = {
             text: trailName,
             description: trailLocation,
@@ -246,10 +247,8 @@ $(document).ready(function () {
             ascent: trailAscent,
             descent: trailDescent
         };
-        console.log(trailLocation);
-        console.log(trailName);
 
-        // Post request to add the activity associated with each add button
+        // POST request to send upload object from above to DB
         $.ajax({
             headers: {
                 "Content-Type": "application/json"
@@ -259,9 +258,9 @@ $(document).ready(function () {
             data: JSON.stringify(upload)
         })
             .then(function (data) {
-                // append the new bucket list item to the bucket list
+                // Taking the response from DB and rendering the add-to-list value to UI 
                 $("#example-list").append(`<li>${data.text}</li>`);
-                // Refresh only the div and not the entire page so as to retain data from get
+                // Refreshing only the div and not the entire page so as to retain data from GET
                 $("#bucketDiv").load(document.URL + " #bucketDiv");
             })
             .catch(function (err) {
@@ -271,19 +270,21 @@ $(document).ready(function () {
     });
 
 
-    // On click listener for the complete button
+    // On click listener for the check button (activity completed)
     $(document).on("click", ".complete", function (e) {
         e.preventDefault();
-
-        let idtoComplete = $(this).parent().attr("data-complete");
+// Retrieving the data-complete attribute value from the DOM, which is set as default false in DB
+        let idtoComplete = ($(this).parent().attr("data-complete"));
+        // Retrieve id of activity 
         let id = $(this).parent().attr("data-id");
-        console.log(idtoComplete);
-        if (!idtoComplete) {
-            idtoComplete = false;
-        } else {
+// True/false toggle 
+        if (idtoComplete == "false") {
             idtoComplete = true;
+        } else {
+            idtoComplete = false;
         }
-        // PUT request to change complete field to true/false
+
+        // PUT request to upload new complete value to DB
         let idUpload = {
             complete: idtoComplete
         }
@@ -296,9 +297,7 @@ $(document).ready(function () {
             data: JSON.stringify(idUpload)
         })
             .then(function (data) {
-                // append the new bucket list item to the bucket list
-                $("#example-list").append(`<li>${data.text}</li>`);
-                // Refresh only the div and not the entire page so as to retain data from get
+                // Reloading bucket div to show new state
                 $("#bucketDiv").load(document.URL + " #bucketDiv");
             })
             .catch(function (err) {

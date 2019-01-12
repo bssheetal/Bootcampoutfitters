@@ -2,6 +2,11 @@
   line-height: 2.5;
 }
 
+/* Line through for completed activities */
+[data-complete="true"] {
+text-decoration: line-through;
+}
+
 /* ***********Emad*********** */
 :root {
   --input-padding-x: 1.5rem;
