@@ -281,7 +281,7 @@ $(document).ready(function () {
         if (idtoComplete == true) {
             idtoComplete = false;
         } else {
-            idtoComplete = false;
+            idtoComplete = true;
         }
         console.log("Out:  " + idtoComplete);
 
