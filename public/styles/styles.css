@@ -2,6 +2,7 @@
   line-height: 2.5;
 }
 
+/* Line through for completed activities */
 [data-complete="true"] {
 text-decoration: line-through;
 }

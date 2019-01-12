@@ -29,6 +29,8 @@ var API = {
       type: "DELETE"
     });
   },
+
+// Added PUT request to the object for UPDATE functionality
   updateExamples: function(id) {
     return $.ajax({
       url: "api/examples/" + id,
@@ -104,8 +106,7 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-// handleUpdateBtnClick is called with the check button is clicked
-
+// handleUpdateBtnClick is called when the check button is clicked
 var handleUpdateBtnClick = function () {
   var idToUpdate = $(this)
   .parent()
@@ -116,9 +117,8 @@ API.updateExamples(idToUpdate).then(function() {
 });
 }
 
-// Add event listeners to the submit and delete buttons
+// Add event listeners to the submit and delete buttons and complete
 $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
-
 $(document).on("click", ".delete", handleDeleteBtnClick);
 $(document).on("click", ".complete", handleUpdateBtnClick);
