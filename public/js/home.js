@@ -275,15 +275,15 @@ $(document).ready(function () {
     $(document).on("click", ".complete", function (e) {
         e.preventDefault();
 
-        let idtoComplete = $(this).parent().attr("data-complete");
+        let idtoComplete = ($(this).parent().attr("data-complete")) /*? 0 : 1*/;
         let id = $(this).parent().attr("data-id");
-        console.log("in:  " + idtoComplete);
-        if (idtoComplete == true) {
-            idtoComplete = false;
-        } else {
+        console.log("idIn " + id);
+        console.log("CompleteIn:  " + idtoComplete);
+        if (idtoComplete == "false") {
             idtoComplete = true;
+        } else {
+            idtoComplete = false;
         }
-        console.log("Out:  " + idtoComplete);
 
         // PUT request to change complete field to true/false
         let idUpload = {
@@ -299,7 +299,7 @@ $(document).ready(function () {
         })
             .then(function (data) {
                 // append the new bucket list item to the bucket list
-                $("#example-list").append(`<li>${data.text}</li>`);
+                // $("#example-list").append(`<li>${data.text}</li>`);
                 // Refresh only the div and not the entire page so as to retain data from get
                 $("#bucketDiv").load(document.URL + " #bucketDiv");
             })
