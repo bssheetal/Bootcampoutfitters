@@ -330,13 +330,18 @@ $(document).ready(function () {
         var difflevel = $(this)
             .closest("div")
             .attr("data-actDiff");
-        diffp.append(`<p>Difficulty: ${difflevel}</p>`);
+        // if(difflevel==="Easy")
+        // {
+        //     diffp.attr('style','font-color=green');
+        //     diffp.append(`<p>Difficulty: ${difflevel}`);
+        // }    
+        diffp.append(`<p>Difficulty: ${difflevel}`);
         var summary = $(this)
             .closest("div")
             .attr("data-summary");
         console.log(name);
         var newsummary = $("<p>");
-        newsummary.append(`<p>Description:${summary}</p>`);
+        newsummary.append(`<p> ${summary}</p>`);
         var ascentp = $("<p>");
         var Ascent = $(this)
             .closest("div")
@@ -351,12 +356,12 @@ $(document).ready(function () {
         var Ratings = $(this)
             .closest("div")
             .attr("data-rating");
-        ratingp.append(`<p>Ratings:${Ratings}</p>`)
+        ratingp.append(`<p>Ratings: ${Ratings}/5 stars</p>`)
         // modaldiv.append(newP);
         modaldiv.append(newIMG);
-        modaldiv.append(lengthp);
-        modaldiv.append(diffp);
         modaldiv.append(newsummary);
+        modaldiv.append(lengthp);
+        modaldiv.append(diffp);       
         modaldiv.append(ascentp);
         modaldiv.append(ratingp);
 
