@@ -311,32 +311,32 @@ $(document).ready(function () {
         console.log("im clicked");
         $(".insidemodal").empty();
         var modaldiv = $("<div>");
-        modaldiv.addClass("insidemodal");
-        var newP = $("<p>");
+        modaldiv.addClass("insidemodal");       
         var name = $(this)
             .closest("div")
             .attr("data-actName");
         console.log("this is pointing to" + name);
-        newP.append(`<b>${name}</b>`);
+        $(".myModalLabel").text(name);
         var newIMG = $("<img>");
+        newIMG.addClass("modalimg");
         var trailIMG = $(this).attr("src");
         newIMG.attr("src", trailIMG);
         var lengthp = $("<p>");
         var Length = $(this)
             .closest("div")
             .attr("data-actLength");
-        lengthp.append(`<p><b>Length of trail:</b> ${Length} miles.</p>`);
+        lengthp.append(`<p>Distance: ${Length} miles.</p>`);
         var diffp = $("<p>");
         var difflevel = $(this)
             .closest("div")
             .attr("data-actDiff");
-        diffp.append(`<p><b>Difficulty:</b> ${difflevel}</p>`);
+        diffp.append(`<p>Difficulty: ${difflevel}</p>`);
         var summary = $(this)
             .closest("div")
             .attr("data-summary");
         console.log(name);
         var newsummary = $("<p>");
-        newsummary.append(`<p><b>Description:</b> "${summary}</p>`);
+        newsummary.append(`<p>Description:${summary}</p>`);
         var ascentp = $("<p>");
         var Ascent = $(this)
             .closest("div")
@@ -345,14 +345,14 @@ $(document).ready(function () {
             .closest("div")
             .attr("data-descent");
         ascentp.append(
-            `<p><b>Ascent:</b>${Ascent}      <b>Descent:</b>${Descent}</p>`
+            `<p>Ascent:${Ascent},      Descent:${Descent}</p>`
         );
         var ratingp = $("<p>");
         var Ratings = $(this)
             .closest("div")
             .attr("data-rating");
-        ratingp.append(`<p><b>Ratings:</b> "${Ratings}</p>`)
-        modaldiv.append(newP);
+        ratingp.append(`<p>Ratings:${Ratings}</p>`)
+        // modaldiv.append(newP);
         modaldiv.append(newIMG);
         modaldiv.append(lengthp);
         modaldiv.append(diffp);

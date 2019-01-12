@@ -204,3 +204,41 @@ body {
   width:250px;
   
 }
+
+.modal-header
+{
+  background-color: #65C7F7;
+ 
+}
+
+.modal-footer
+{
+  background-color: #65C7F7;
+}
+
+.btnclose:hover
+{
+    background-color:  #65C7F7;
+    color: black;
+    font-weight: bold;
+    width:15%;
+}
+.traillength
+{
+  width:50px;
+  height:50px;
+}
+
+.btnclose
+{
+    background-color:   #65C7F7;
+    color: black;
+    font-weight: bold;
+    width:15%;
+}
+
+.modalimg
+{
+  width:300px;
+  height:200px;
+}
