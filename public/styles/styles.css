@@ -152,19 +152,39 @@ body {
 }
 
 /* Weather Syling Info (kat) */
-.daydiv {
+.forecast {
+  float: right;
+  margin-right: 10px;
+  background-color: none;
+}
+.weatherHeader {
+  line-height: 2em;
+  font-size: 20px;
+  width: 250px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border: solid .75px #fff;
+}
+#weatherCard {
+  line-height: 1em;
+  width: 250px;
+  margin-bottom: 15px;
+  align-items: center;
+  border: 1px solid #fff;
+}
+.dayBSBody {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  width: 150px;
 }
-#weatherDiv {
-  text-align: left;
-  margin-top:10px;
+.dayOfWk {
+  font-size: 20px; 
 }
 
 /* Nature Video: Home (kat) */
