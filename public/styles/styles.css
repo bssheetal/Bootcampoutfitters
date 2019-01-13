@@ -1,25 +1,59 @@
+/* Logo */
+
+.BOlogo {
+  font-size: 35px;
+  color: #495057;
+  font-family: "Righteous", cursive;
+}
+
+.BOlogo:hover {
+  font-size: 35px;
+  color: #3287e0;
+  font-family: "Righteous", cursive;
+}
+/* Navigation */
+
+.nav-link {
+  margin-top:-70px;
+  background-color: lightsalmon;
+  height: 70px;
+}
+/* SignupOrLogin Area */
+
+.mainSignupImg {
+  /* filter: opacity(90%); */
+
+}
+/* Forms */
+label {
+  color: #000;
+}
 .list-group-item {
   line-height: 2.5;
 }
 
 /* Line through for completed activities */
+
 [data-complete="true"] {
-text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 /* ***********Emad*********** */
+
 :root {
   --input-padding-x: 1.5rem;
-  --input-padding-y: .75rem;
+  --input-padding-y: 0.75rem;
 }
 
 body {
-  background: #9CECFB;
+  background: #9cecfb;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+  background: -webkit-linear-gradient(to right, #0052d4, #65c7f7, #9cecfb);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+  background: linear-gradient(to right, #0052d4, #65c7f7, #9cecfb);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Domine', serif;
+
 }
 
 .card-signin {
@@ -38,7 +72,8 @@ body {
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url('../images/BlueMountain.jpeg');
+  background: scroll center url("../images/BlueMountain-20.png");
+
   background-size: cover;
 }
 
@@ -53,7 +88,7 @@ body {
 .form-signin .btn {
   font-size: 80%;
   border-radius: 5rem;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
@@ -69,12 +104,12 @@ body {
   border-radius: 2rem;
 }
 
-.form-label-group>input,
-.form-label-group>label {
+.form-label-group > input,
+.form-label-group > label {
   padding: var(--input-padding-y) var(--input-padding-x);
 }
 
-.form-label-group>label {
+.form-label-group > label {
   position: absolute;
   top: 0;
   left: 0;
@@ -85,8 +120,8 @@ body {
   line-height: 1.5;
   color: #495057;
   border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
+  border-radius: 0.25rem;
+  transition: all 0.1s ease-in-out;
 }
 
 .form-label-group input::-webkit-input-placeholder {
@@ -114,7 +149,7 @@ body {
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
-.form-label-group input:not(:placeholder-shown)~label {
+.form-label-group input:not(:placeholder-shown) ~ label {
   padding-top: calc(var(--input-padding-y) / 3);
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
@@ -126,44 +161,62 @@ body {
   background-color: #ea4335;
 }
 
-.searchButton
-{
+.searchButton {
   color: whitesmoke;
   background-color: #ea4335;
-  width: 45%;  
+  width: 45%;
   font-weight: 1000px;
 }
+
 .btn-facebook {
   color: white;
   background-color: #3b5998;
 }
 
 .header {
-  background-color:  rgba(255,255,255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .footer {
-  background-color: rgba(255,255,255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .card-trail {
   width: 250px;
   /* height: 200px; */
 }
-/* Bucket List Styling Info */
-.bucketList {
+
+/* Bucket List */
+label {
+  font-size: .8rem;
+  color:#000 !important;
+}
+.bucketItemContainer {
+  background-color: white;
+  width: 900px;
+  margin-top: 60px;
+  padding: 30px;
+}
+.bucketListContainer {
+  background-color: white;
+  width: 900px;
+  margin-top: 60px;
+  padding: 30px;
+}
+
+/* Weather */
+
+#weatherDiv {
   margin-top: 20px;
 }
-/* Weather Syling Info (kat) */
-#weatherDiv {
-  margin-top:20px;
-}
+
 .forecast {
   float: right;
   margin-right: 10px;
   margin-top: 58px;
   background-color: none;
 }
+
 .weatherHeader {
   line-height: 2em;
   font-size: 20px;
@@ -177,6 +230,7 @@ body {
   align-items: center !important;
   vertical-align: middle !important;
 }
+
 #weatherCard {
   float: right;
   /* color: #fff; */
@@ -194,104 +248,113 @@ body {
   /* background-image: url("../images/poly-1.png");
   background-size: cover; */
 }
+
 .dayBSBody {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .dayOfWk {
-  font-size: 20px; 
+  font-size: 20px;
 }
+
 .smallTxt {
   font-size: 16px;
   line-height: 1.5em;
 }
+
 .highLow {
-  margin-top:10px;
+  margin-top: 10px;
 }
-/* Nature Video: Home (kat) */
+
+/* Nature Video */
+
 #myVideo {
   position: fixed;
   right: 0;
   bottom: 0;
-  filter:opacity(75%);
-  z-index:-1;
+  filter: opacity(75%);
+  z-index: -1;
   top: -60px;
   min-width: 110%;
   min-height: 110%;
   /* background-size: cover; */
 }
 
-#inlineFormInput
-{
-   position: relative;
-    width: 140%; 
-    padding:1px -3px;
+#inlineFormInput {
+  position: relative;
+  width: 140%;
+  padding: 1px -3px;
 }
 
-#inputGroupSelect01
-{
+#inputGroupSelect01 {
   /* font-size: 1rem;
     line-height: 1.5; */
-    border-radius: .25rem;
-    width: 100%; 
-    padding:1px 3px;
-    margin-top: 1.5rem!important;
-    margin-left:6px;
-
+  border-radius: 0.25rem;
+  width: 100%;
+  padding: 1px 3px;
+  margin-top: 1.5rem !important;
+  margin-left: 6px;
 }
 
-.formSearch
-{
-  width:250px;
-  
+.formSearch {
+  width: 250px;
 }
-/* Modal Info */
+
+/* Modal */
+
 .modal-header {
-  background-color: #65C7F7;
+  background-color: #65c7f7;
 }
 
 .modal-footer {
-  background-color: #65C7F7;
+  background-color: #65c7f7;
 }
 
 .btnclose:hover {
-    background-color:  #65C7F7;
-    color: black;
-    font-weight: bold;
-    width:15%;
+  background-color: #65c7f7;
+  color: black;
+  font-weight: bold;
+  width: 15%;
 }
+
 .traillength {
-  width:50px;
-  height:50px;
+  width: 50px;
+  height: 50px;
 }
 
 .btnclose {
-    background-color:   #65C7F7;
-    color: black;
-    font-weight: bold;
-    width:15%;
+  background-color: #65c7f7;
+  color: black;
+  font-weight: bold;
+  width: 15%;
 }
 
 .modalimg {
-  height:200px;
-  width:300px;
+  height: 200px;
+  width: 300px;
   margin-bottom: 5%;
 }
-/* Widget Info */
+
+/* Widget */
+
 #photo-href {
   background-color: #000;
   background-image: none !important;
 }
+
 #trail-td {
   background-color: #000;
   background-image: none !important;
 }
+
 #map-td {
   background-color: #000;
   background-image: none !important;
 }
+
 .widgetCover {
   position: absolute;
   top: 480px;
@@ -301,7 +364,8 @@ body {
   background-color: #000;
   /* filter:opacity(75%);
   border: solid 1px #fff; */
-} 
+}
+
 @media only screen and (max-width: 991px) {
   .widgetCover {
     top: 464px;
@@ -310,4 +374,4 @@ body {
     /* filter:opacity(75%);
     border: solid 1px #fff; */
   }
-} 
+}

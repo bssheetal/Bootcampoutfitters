@@ -1,4 +1,9 @@
 {{!-- Bucket List Section: --}}
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
 <div class="row">
 
   <div class="col-md-3">
@@ -50,7 +55,7 @@
             </button>
           </div>
           <div class="modal-body">
-          <div class="widgetCover"></div>
+            <div class="widgetCover"></div>
 
           </div>
           <div class="modal-footer">
@@ -65,17 +70,25 @@
     {{!-- <h4>{{user.email}}'s</h4>
     <h4 class="text-center">Profile Page</h4><br> --}}
     <form class="clearfix mb-4 bucketList" action="POST">
-      <div class="form-group">
-        <label for="example-text"><h4>Bucket List Item:</h4></label>
-        <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="I.e., Mount Everest, K2, Mt. Kilimanjaro, Denali/Mt. McKinley, or just Potato Chip Rock...">
+      <div class="bucketItemContainer">
+        <div class="form-group">
+          <label for="example-text">
+            <h5>Bucket List Item:</h5>
+          </label>
+          <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="I.e., Mount Everest, K2, Mt. Kilimanjaro, Denali/Mt. McKinley, or just Potato Chip Rock...">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="example-description"><h4>Hiking Notes:</h4></label>
-        <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Hiking Beta/Info: Bring Hiking Poles, 1L-3L bottle/bladder..."></textarea>
+      <div class="bucketListContainer">
+        <div class="form-group">
+          <label for="example-description">
+            <h5>Hiking Notes:</h5>
+          </label>
+          <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Hiking Beta/Info: Bring Hiking Poles, 1L-3L bottle/bladder..."></textarea>
+        </div>
       </div>
       <button id="submit" class="btn btn-primary float-right">Buck-it</button>
     </form>
-    <h4>My Bucket List:</h4>
+    <h5>My Bucket List:</h5>
     <div id="bucketDiv">
       <ul id="example-list" class="list-group">
         {{#each user.Examples}}
@@ -100,4 +113,5 @@
   <div class="col-md-3">
     <div id="weatherDiv"></div>
   </div>
+  
 </div>
