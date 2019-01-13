@@ -145,7 +145,7 @@ $(document).ready(function () {
                     .attr("data-imagelink", trailIMG);
 
 
-                console.log(trailInfo);
+                // console.log(trailInfo);
 
                 newP.append(trailInfo.location);
                 newCardbody.append(newH);
