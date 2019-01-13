@@ -327,7 +327,10 @@ $(document).ready(function () {
         console.log("im clicked");
         $(".insidemodal").empty();
         var modaldiv = $("<div>");
-        modaldiv.addClass("insidemodal");       
+        modaldiv.addClass("insidemodal"); 
+        var trailid=$(this).closest("div").attr("data-actNum");   
+        console.log("trailid in modal is"+trailid);
+        var trailiframe=$(`<iframe style="width:100%; max-width:1200px; height:410px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=${trailid}"></iframe>`);   
         var name = $(this)
             .closest("div")
             .attr("data-actName");
@@ -380,6 +383,7 @@ $(document).ready(function () {
         modaldiv.append(diffp);       
         modaldiv.append(ascentp);
         modaldiv.append(ratingp);
+        modaldiv.append(trailiframe);
 
         $(".modal-body").append(modaldiv);
         $("#myModal").modal("show");
