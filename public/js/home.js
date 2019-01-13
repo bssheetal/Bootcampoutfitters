@@ -154,12 +154,14 @@ $(document).ready(function () {
             }
         });
     }
-
+    
+    // npm weather-js synced with location search 
     function getweatherinfo() {
+        // retuning the input value of the first matched element and trimming whitespace
         var region = $("#inlineFormInput")
             .val()
             .trim();
-
+        // if input value matches city or region, hold in variable searchinfo
         if (region === " " || region.length == 0 || region == null) {
             var searchinfo = {
                 region: city
@@ -169,59 +171,59 @@ $(document).ready(function () {
                 region: region
             };
         }
+        // getting npm weather-js data and passed through paramerter of searchinfo
         $.get("/weather", searchinfo, function (response) {
-            // Clears div, so doesn't show same info again
+            // clears div upon seach request (divs not piling up)
             $("#weatherDiv").empty();
-
+            
+            // let's see the entire response
             console.log("weather api response is " + JSON.stringify(response));
+
+            // let's choose only the first city repsonse [0] of the array object
             var city = response[0].current.observationpoint;
-
-            $("#weatherDiv").append("5 Day Forecast for: " + city);
-
+            // inserted an h1 header
+            $("#weatherDiv").append("<p class ='weatherHeader'>5 Day Forecast for:<br>" + city + "</p>");
+            // created forecast variable to hold weather data
             var forecastDiv = $('<div class = "forecast">');
+            
+            // loop thorugh weather-js forecast array
             for (var i = 0; i < response[0].forecast.length; i++) {
+                // created a variable/shortcut to hold that specifc array we're requesting
                 var currentDay = response[0].forecast[i];
-                var conditionsImgs =
-                    `http://blob.weather.microsoft.com/static/weather4/en-us/law/` +
-                    currentDay.skycodeday +
-                    ".gif";
-
+                // created a variable to display images for response[0].forecast[i].skycodeday
+                var conditionsImgs = 
+                `http://blob.weather.microsoft.com/static/weather4/en-us/law/` + currentDay.skycodeday + ".gif";
+                
+                // let's see the response array in the console for response[0].forecast[i]
                 console.log(currentDay);
+                
+                // variable to display each day (dayDiv) in a boostrap card class
                 var dayDiv = $('<div class = "daydiv">');
-                var dateDiv = $(
-                    "<p class = 'forecastFont'>" + currentDay.date + "</p>"
-                );
-                var dayofwkDiv = $(
-                    "<p class = 'forecastFont'>" + currentDay.day + "</p>"
-                );
-                var skytxtDiv = $(
-                    "<p class = 'forecastFont'>" + currentDay.skytextday + "</p>"
-                );
-                var skycodeDiv = $(
-                    "<img src = " + conditionsImgs + " class = 'forecastFont'>"
-                );
-                var highDiv = $(
-                    "<p class = 'forecastFont'> High: " +
-                    currentDay.high +
-                    "\u00B0F" +
-                    "</p>"
-                );
-                var lowDiv = $(
-                    "<p class = 'forecastFont'> Low: " +
-                    currentDay.low +
-                    "\u00B0F" +
-                    "</p>"
-                );
+                // variable to display the current day of the week; e.g, Sunday, Monday, etc.
+                var dayofwkDiv = $("<p class = 'forecastFont'>" + currentDay.day + "</p>");
+                // variable to display the date; e.g, 01-10-2019
+                var dateDiv = $("<p class = 'forecastFont'>" + currentDay.date + "</p>");
+                // variable to display weather conditions; e.g, Mostly Sunny, Mostly Cloudy, Clear, etc.
+                var skytxtDiv = $("<p class = 'forecastFont'>" + currentDay.skytextday + "</p>");
+                // variable to display skycodeday number that corresponds to an image .gif url from weather-js (microsoft's weather website)
+                var skycodeDiv = $("<img src = " + conditionsImgs + " class = 'forecastFont'>");
+                // variable to display the highest temperature for the day in Fahrenheit with a degree unicode symbol
+                var highDiv = $("<p class = 'forecastFont'> High: " + currentDay.high + "\u00B0F" + "</p>");
+                // variable to display the lowest temperature for the day in Fahrenheit with a degree unicode symbol
+                var lowDiv = $("<p class = 'forecastFont'> Low: " + currentDay.low + "\u00B0F" + "</p>");
 
+                // append the data to each day (dayDiv)
                 dayDiv.append(dateDiv);
                 dayDiv.append(dayofwkDiv);
                 dayDiv.append(skytxtDiv);
                 dayDiv.append(skycodeDiv);
                 dayDiv.append(highDiv);
                 dayDiv.append(lowDiv);
-
+                
+                // append all dayDiv data to forecastDiv
                 forecastDiv.append(dayDiv);
-            }
+            }   
+            // create a jquery id selector = weatherDiv to hold dayDiv data
             $("#weatherDiv").append(forecastDiv);
         });
     }
