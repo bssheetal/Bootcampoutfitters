@@ -177,7 +177,7 @@ $(document).ready(function () {
             $("#weatherDiv").empty();
             
             // let's see the entire response
-            console.log("weather api response is " + JSON.stringify(response));
+            // console.log("weather api response is " + JSON.stringify(response));
 
             // let's choose only the first city repsonse [0] of the array object
             var city = response[0].current.observationpoint;
@@ -195,16 +195,20 @@ $(document).ready(function () {
                 `http://blob.weather.microsoft.com/static/weather4/en-us/law/` + currentDay.skycodeday + ".gif";
                 
                 // let's see the response array in the console for response[0].forecast[i]
-                console.log(currentDay);
-                
+                // console.log(currentDay);
+
+                // npm moment-js to convert time; e.g, 2019-01-11 to January 11, 2019
+                var newDate = currentDay.date;
+                var convertedDate = moment(newDate).format("MMMM D, YYYY")
+
                 // variable to display each day into dayDiv with a Bootstrap 'card' class
                 var dayDiv = $('<div class = "card" id = "weatherCard">');
                 // variable to display dayDiv with a Bootstrap 'card-body' class
                 var dayBSBody = $('<div class = "card-body dayBSBody">');
                 // variable to display the current day of the week; e.g, Sunday, Monday, etc.
                 var dayofwkDiv = $("<p class = 'dayOfWk'>" + currentDay.day + "</p>");
-                // variable to display the date; e.g, 01-10-2019
-                var dateDiv = $("<p>" + currentDay.date + "</p>");
+                // variable to display the new moment.js date
+                var dateDiv = $("<p>" + convertedDate + "</p>");
                 // variable to display weather conditions; e.g, Mostly Sunny, Mostly Cloudy, Clear, etc.
                 var skytxtDiv = $("<p>" + currentDay.skytextday + "</p>");
                 // variable to display skycodeday number that corresponds to an image .gif url from weather-js (microsoft's weather website)
