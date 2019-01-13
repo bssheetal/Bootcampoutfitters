@@ -5,113 +5,130 @@
 </head>
 
 <div class="row">
+<div class="col-md-12">
+<div class="hikingSearchBar">
+      <div id="parallaxTest">
+    <div class="mySlides">
+      <div class="container">
+      </div>
+    </div>
+  </div>
+  <div class="search" data-id={{user.id}}>
+    <form class="formSearch">
+      <div class="form-row align-items-center">
+        <div class="row">
+          <div class="col-md-4">
+            <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
+            <div class="invalid-feedback">
+              Please enter a location.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Miles</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
 
-  <div class="col-md-3">
-    <div id="parallaxTest">
-      <div class="mySlides">
-        <div class="container">
+<div class="row">
 
+  <div class="col-md-4">
+    <div class="leftContainer">
+      <div id="hikingDiv">
+
+      </div>
+
+      <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="myModalLabel" id="exampleModalCenterTitle"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="widgetCover"></div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btnclose btn-outline-light" data-dismiss="modal">Ok</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="search" data-id={{user.id}}>
-      <form class="formSearch">
-        <div class="form-row align-items-center">
-          <div class="row">
-            <div class="col-md-4">
-              <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
-              <div class="invalid-feedback">
-                Please enter a location.
-              </div>
-            </div>
-            <div class="col-md-4">
-              <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Miles</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-              </select>
-            </div>
-            <div class="col-md-4">
-              <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
-            </div>
+  </div>
+
+  <div class="col-md-4 offset-0">
+    <div class="middleContainer">
+      {{!-- <h4>{{user.email}}'s</h4>
+      <h4 class="text-center">Profile Page</h4><br> --}}
+      <form class="clearfix mb-4 bucketList" action="POST">
+        <div class="bucketItemContainer">
+          <div class="form-group">
+            <label for="example-text">
+              <h5>Bucket List Item:</h5>
+            </label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="I.e., Mount Everest, K2, Mt. Kilimanjaro, Denali/Mt. McKinley, or just Potato Chip Rock...">
           </div>
+        </div>
+        <div class="bucketHikeContainer">
+          <div class="form-group">
+            <label for="example-description">
+              <h5>Hiking Notes:</h5>
+            </label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Hiking Beta/Info: Bring Hiking Poles, 1L-3L bottle/bladder..."></textarea>
+          </div>
+          <button id="submit" class="btn btn-primary float-right">Buck-it</button>
         </div>
       </form>
-    </div>
-    <div id="hikingDiv">
-
-    </div>
-
-    <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="myModalLabel" id="exampleModalCenterTitle"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="widgetCover"></div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btnclose btn-outline-light" data-dismiss="modal">Ok</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-6 offset-0">
-    {{!-- <h4>{{user.email}}'s</h4>
-    <h4 class="text-center">Profile Page</h4><br> --}}
-    <form class="clearfix mb-4 bucketList" action="POST">
-      <div class="bucketItemContainer">
-        <div class="form-group">
-          <label for="example-text">
-            <h5>Bucket List Item:</h5>
-          </label>
-          <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="I.e., Mount Everest, K2, Mt. Kilimanjaro, Denali/Mt. McKinley, or just Potato Chip Rock...">
-        </div>
-      </div>
       <div class="bucketListContainer">
-        <div class="form-group">
-          <label for="example-description">
-            <h5>Hiking Notes:</h5>
-          </label>
-          <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Hiking Beta/Info: Bring Hiking Poles, 1L-3L bottle/bladder..."></textarea>
+        <h5>My Bucket List:</h5>
+        <div id="bucketDiv">
+          <ul id="example-list" class="list-group">
+            {{#each user.Examples}}
+            <li data-id="{{this.id}}" data-complete={{this.complete}} class="list-group-item">
+              <a href="item/{{this.id}}">{{this.text}}</a>
+              <button class="btn btn-danger float-right delete">ｘ</button>
+              <button class="btn btn-success float-right complete">&#10003</button>
+            </li>
+            {{/each}}
+          </ul>
+          {{!-- <ul id="example-list" class="list-group">
+            {{#each user.Examples}}
+            <li data-id="{{this.id}}" class="list-group-item">
+              <a href="example/{{this.id}}">{{this.text}}</a>
+              <button class="btn btn-danger float-right delete">ｘ</button>
+            </li>
+            {{/each}}
+          </ul> --}}
         </div>
       </div>
-      <button id="submit" class="btn btn-primary float-right">Buck-it</button>
-    </form>
-    <h5>My Bucket List:</h5>
-    <div id="bucketDiv">
-      <ul id="example-list" class="list-group">
-        {{#each user.Examples}}
-        <li data-id="{{this.id}}" data-complete={{this.complete}} class="list-group-item">
-          <a href="item/{{this.id}}">{{this.text}}</a>
-          <button class="btn btn-danger float-right delete">ｘ</button>
-          <button class="btn btn-success float-right complete">&#10003</button>
-        </li>
-        {{/each}}
-      </ul>
-      {{!-- <ul id="example-list" class="list-group">
-        {{#each user.Examples}}
-        <li data-id="{{this.id}}" class="list-group-item">
-          <a href="example/{{this.id}}">{{this.text}}</a>
-          <button class="btn btn-danger float-right delete">ｘ</button>
-        </li>
-        {{/each}}
-      </ul> --}}
     </div>
   </div>
 
-  <div class="col-md-3">
-    <div id="weatherDiv"></div>
+  <div class="col-md-4">
+    <div class="rightContainer">
+      <div id="weatherDiv"></div>
+    </div>
   </div>
-  
+
 </div>
+
+{{!-- Materialize JS CDN --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

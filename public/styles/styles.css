@@ -1,377 +1,431 @@
-/* Logo */
+/* Bootcamp Oufitters 2019 - Emad, Sheetal, Iris, Kat ---*/
+
+/* Global Styling ---------------------------------------*/
+
+body {
+    font-family: "Domine", serif;
+    background-color: #9eebfa;
+    background-image: url("../images/hiking-bg-01.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background: #9cecfb; */
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #0052d4, #65c7f7, #9cecfb); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #0052d4, #65c7f7, #9cecfb); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* Top Navigation Logo ---------------------------------------*/
 
 .BOlogo {
-  font-size: 35px;
-  color: #495057;
-  font-family: "Righteous", cursive;
+    font-size: 35px;
+    color: #495057;
+    font-family: "Righteous", cursive;
 }
 
 .BOlogo:hover {
-  font-size: 35px;
-  color: #3287e0;
-  font-family: "Righteous", cursive;
+    font-size: 35px;
+    color: #3287e0;
+    font-family: "Righteous", cursive;
 }
-/* Navigation */
+
+/* Top Navigation Links ---------------------------------------*/
 
 .nav-link {
-  margin-top:-70px;
-  background-color: lightsalmon;
-  height: 70px;
+    margin-top: -70px;
+    background-color: lightsalmon;
+    height: 70px;
 }
-/* SignupOrLogin Area */
+
+/* SignupOrLogin Page ---------------------------------------*/
 
 .mainSignupImg {
-  /* filter: opacity(90%); */
-
-}
-/* Forms */
-label {
-  color: #000;
-}
-.list-group-item {
-  line-height: 2.5;
+    /* filter: opacity(90%); */
 }
 
-/* Line through for completed activities */
+/* Line Through Completed Activities */
 
 [data-complete="true"] {
-  text-decoration: line-through;
+    text-decoration: line-through;
 }
-
-/* ***********Emad*********** */
 
 :root {
-  --input-padding-x: 1.5rem;
-  --input-padding-y: 0.75rem;
+    --input-padding-x: 1.5rem;
+    --input-padding-y: 0.75rem;
 }
 
-body {
-  background: #9cecfb;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0052d4, #65c7f7, #9cecfb);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0052d4, #65c7f7, #9cecfb);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-family: 'Domine', serif;
+/* Profile Page --------------------------------------*/
 
+.leftContainer {
+    float: left !important;
 }
 
-.card-signin {
-  border: 0;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+.middleContainer {
+    float: left !important;
 }
 
-.card-signin .card-title {
-  margin-bottom: 2rem;
-  font-weight: 300;
-  font-size: 2.5rem;
-}
-
-.card-signin .card-img-left {
-  width: 45%;
-  /* Link to your background image using in the property below! */
-  background: scroll center url("../images/BlueMountain-20.png");
-
-  background-size: cover;
-}
-
-.card-signin .card-body {
-  padding: 2rem;
-}
-
-.form-signin {
-  width: 100%;
-}
-
-.form-signin .btn {
-  font-size: 80%;
-  border-radius: 5rem;
-  letter-spacing: 0.1rem;
-  font-weight: bold;
-  padding: 1rem;
-  transition: all 0.2s;
-}
-
-.form-label-group {
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-.form-label-group input {
-  height: auto;
-  border-radius: 2rem;
-}
-
-.form-label-group > input,
-.form-label-group > label {
-  padding: var(--input-padding-y) var(--input-padding-x);
-}
-
-.form-label-group > label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  /* Override default `<label>` margin */
-  line-height: 1.5;
-  color: #495057;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  transition: all 0.1s ease-in-out;
-}
-
-.form-label-group input::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input:-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-moz-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::placeholder {
-  color: transparent;
-}
-
-.form-label-group input:not(:placeholder-shown) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
-  padding-bottom: calc(var(--input-padding-y) / 3);
-}
-
-.form-label-group input:not(:placeholder-shown) ~ label {
-  padding-top: calc(var(--input-padding-y) / 3);
-  padding-bottom: calc(var(--input-padding-y) / 3);
-  font-size: 12px;
-  color: #777;
-}
-
-.btn-google {
-  color: white;
-  background-color: #ea4335;
-}
-
-.searchButton {
-  color: whitesmoke;
-  background-color: #ea4335;
-  width: 45%;
-  font-weight: 1000px;
-}
-
-.btn-facebook {
-  color: white;
-  background-color: #3b5998;
-}
-
-.header {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.footer {
-  background-color: rgba(255, 255, 255, 0.5);
+.rightContainer {
+    float: right !important;
 }
 
 .card-trail {
-  width: 250px;
-  /* height: 200px; */
+    width: 250px;
+    height: 400px;
 }
 
-/* Bucket List */
-label {
-  font-size: .8rem;
-  color:#000 !important;
-}
-.bucketItemContainer {
-  background-color: white;
-  width: 900px;
-  margin-top: 60px;
-  padding: 30px;
-}
-.bucketListContainer {
-  background-color: white;
-  width: 900px;
-  margin-top: 60px;
-  padding: 30px;
+.hikingFloat {
+    float: left !important;
+    /* overflow: auto; */
 }
 
-/* Weather */
-
-#weatherDiv {
-  margin-top: 20px;
+.card {
+    margin-left: 20px !important;
 }
 
-.forecast {
-  float: right;
-  margin-right: 10px;
-  margin-top: 58px;
-  background-color: none;
+/* Card SignIn ---------------------------------------*/
+
+.card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.weatherHeader {
-  line-height: 2em;
-  font-size: 20px;
-  width: 250px;
-  margin-top: 10px;
-  margin-right: 10px;
-  padding-left: 10px;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  vertical-align: middle !important;
+.card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 2.5rem;
 }
 
-#weatherCard {
-  float: right;
-  /* color: #fff; */
-  line-height: 1em;
-  width: 250px;
-  height: 220px;
-  margin-bottom: 15px;
-  align-items: center;
-  border: 1px solid #fff;
-  vertical-align: middle !important;
-  padding-top: 15px;
-  background-color: #fff;
-  box-shadow: 2px 2px #6ac9f5;
-  /* box-shadow: inset 0 0 10px #6ac9f5; */
-  /* background-image: url("../images/poly-1.png");
-  background-size: cover; */
+.card-signin .card-img-left {
+    width: 45%;
+    background: scroll center url("../images/BlueMountain-20.png");
+    background-size: cover;
 }
 
-.dayBSBody {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.card-signin .card-body {
+    padding: 2rem;
 }
 
-.dayOfWk {
-  font-size: 20px;
+/* Forms ---------------------------------------*/
+
+.form-signin {
+    width: 100%;
 }
 
-.smallTxt {
-  font-size: 16px;
-  line-height: 1.5em;
+.form-signin .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
 }
 
-.highLow {
-  margin-top: 10px;
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
 }
 
-/* Nature Video */
+.form-label-group input {
+    height: auto;
+    border-radius: 2rem;
+}
 
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  filter: opacity(75%);
-  z-index: -1;
-  top: -60px;
-  min-width: 110%;
-  min-height: 110%;
-  /* background-size: cover; */
+.form-label-group>input,
+.form-label-group>label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-label-group>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: all 0.1s ease-in-out;
+    /* Override default `<label>` margin */
+}
+
+.form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::placeholder {
+    color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+    padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+    padding-top: calc(var(--input-padding-y) / 3);
+    padding-bottom: calc(var(--input-padding-y) / 3);
+    font-size: 12px;
+    color: #777;
+}
+
+/* Inputs, btns, labels ---------------------------------------*/
+.hikingSearchBar {
+    background-color: #fff;
+    filter: opacity(75%);
+}
+.formSearch {
+    /* width: 250px; */
 }
 
 #inlineFormInput {
-  position: relative;
-  width: 140%;
-  padding: 1px -3px;
+    position: relative;
+    width: 140%;
+    padding: 1px -3px;
 }
 
 #inputGroupSelect01 {
-  /* font-size: 1rem;
-    line-height: 1.5; */
-  border-radius: 0.25rem;
-  width: 100%;
-  padding: 1px 3px;
-  margin-top: 1.5rem !important;
-  margin-left: 6px;
+    /* font-size: 1rem;
+  line-height: 1.5; */
+    border-radius: 0.25rem;
+    width: 100%;
+    padding: 1px 3px;
+    margin-top: 1.5rem !important;
+    margin-left: 6px;
 }
 
-.formSearch {
-  width: 250px;
+.btn-google {
+    color: white;
+    background-color: #ea4335;
 }
 
-/* Modal */
+.searchButton {
+    color: whitesmoke;
+    background-color: #ea4335;
+    width: 45%;
+    font-weight: 1000px;
+}
+
+.btn-facebook {
+    color: white;
+    background-color: #3b5998;
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.footer {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+label {
+    color: #000;
+}
+
+.list-group-item {
+    line-height: 2.5;
+}
+
+/* Bucket List ---------------------------------------*/
+
+label {
+    font-size: 0.8rem;
+    color: #000 !important;
+}
+
+.bucketItemContainer {
+    background-color: white;
+    width: 600px;
+    margin-top: 60px;
+    padding: 30px;
+    filter: opacity(90%);
+}
+
+.bucketHikeContainer {
+    background-color: white;
+    width: 600px;
+    height: 220px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 30px;
+    filter: opacity(90%);
+}
+
+.bucketListContainer {
+    background-color: white;
+    width: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 30px;
+    filter: opacity(90%);
+}
+
+/* Weather ---------------------------------------*/
+
+#weatherDiv {
+    margin-top: 20px;
+}
+
+.forecast {
+    float: right;
+    margin-top: 32px;
+    background-color: none;
+}
+
+.weatherHeader {
+    line-height: 2em;
+    font-size: 20px;
+    width: 250px;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    vertical-align: middle !important;
+}
+
+#weatherCard {
+    float: left;
+    line-height: 1em;
+    width: 250px;
+    height: 220px;
+    margin-bottom: 15px;
+    align-items: center;
+    border: 1px solid #fff;
+    vertical-align: middle !important;
+    padding-top: 15px;
+    background-color: #fff;
+    background-image: url("../images/poly-1.png");
+    background-size: cover;
+    box-shadow: 2px 2px #6ac9f5;
+    /* box-shadow: inset 0 0 10px #6ac9f5; */
+    /* color: #fff; */
+}
+
+.dayBSBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dayOfWk {
+    font-size: 20px;
+}
+
+.smallTxt {
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.highLow {
+    margin-top: 10px;
+}
+
+/* MP4 ---------------------------------------*/
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    filter: opacity(75%);
+    z-index: -1;
+    top: -60px;
+    min-width: 110%;
+    min-height: 110%;
+    /* background-size: cover; */
+}
+
+/* Modal --------------------------------------*/
 
 .modal-header {
-  background-color: #65c7f7;
+    background-color: #65c7f7;
 }
 
 .modal-footer {
-  background-color: #65c7f7;
+    background-color: #65c7f7;
 }
 
 .btnclose:hover {
-  background-color: #65c7f7;
-  color: black;
-  font-weight: bold;
-  width: 15%;
+    background-color: #65c7f7;
+    color: black;
+    font-weight: bold;
+    width: 15%;
 }
 
 .traillength {
-  width: 50px;
-  height: 50px;
+    width: 50px;
+    height: 50px;
 }
 
 .btnclose {
-  background-color: #65c7f7;
-  color: black;
-  font-weight: bold;
-  width: 15%;
+    background-color: #65c7f7;
+    color: black;
+    font-weight: bold;
+    width: 15%;
 }
 
 .modalimg {
-  height: 200px;
-  width: 300px;
-  margin-bottom: 5%;
+    height: 200px;
+    width: 300px;
+    margin-bottom: 5%;
 }
 
-/* Widget */
+/* Widget --------------------------------------- */
 
 #photo-href {
-  background-color: #000;
-  background-image: none !important;
+    background-color: #000;
+    background-image: none !important;
 }
 
 #trail-td {
-  background-color: #000;
-  background-image: none !important;
+    background-color: #000;
+    background-image: none !important;
 }
 
 #map-td {
-  background-color: #000;
-  background-image: none !important;
+    background-color: #000;
+    background-image: none !important;
 }
 
 .widgetCover {
-  position: absolute;
-  top: 480px;
-  left: 485px;
-  width: 295px;
-  height: 172px;
-  background-color: #000;
-  /* filter:opacity(75%);
+    position: absolute;
+    top: 480px;
+    left: 485px;
+    width: 295px;
+    height: 172px;
+    background-color: #000;
+    /* filter:opacity(75%);
   border: solid 1px #fff; */
 }
 
+/* Media ------------------------------------------*/
+
 @media only screen and (max-width: 991px) {
-  .widgetCover {
-    top: 464px;
-    left: 85px;
-    width: 310px;
-    /* filter:opacity(75%);
+    .widgetCover {
+        top: 464px;
+        left: 85px;
+        width: 310px;
+        /* filter:opacity(75%);
     border: solid 1px #fff; */
-  }
+    }
 }

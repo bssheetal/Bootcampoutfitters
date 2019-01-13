@@ -100,7 +100,7 @@ $(document).ready(function () {
                 }
 
                 var newDiv = $("<div>").addClass("card card-trail mt-4");
-                var newDiv = $("<div>").addClass("card card-trail mt-3 mb-3");
+                var newDiv = $("<div class='hikingFloat'>").addClass("card card-trail mt-3 mb-3");
 
                 newDiv
                     .attr("data-actNum", trailInfo.id)
