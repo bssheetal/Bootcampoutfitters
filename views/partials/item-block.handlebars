@@ -13,7 +13,8 @@
     <p><strong>{{example.text}}</strong></p>
     <p> {{example.description}}</p>
     {{#if example.lengthOfTrail}}
-    <img src={{example.imagelink}} id="trailimage">
+    <a href={{example.maplink}} target="_blank"><img src={{example.imagelink}}></a>
+    <hr>
     <p><strong>Length:</strong> {{example.lengthOfTrail}}</p>
     <p><strong>Difficulty:</strong> {{example.difficulty}}</p>
     <p><strong>Summary:</strong> {{example.summary}}</p>

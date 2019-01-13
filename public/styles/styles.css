@@ -274,3 +274,7 @@ body {
 a:hover {
   cursor: pointer;
 }
+
+#trailimage {
+  cursor: pointer;
+}

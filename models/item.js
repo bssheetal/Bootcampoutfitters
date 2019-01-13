@@ -12,7 +12,8 @@ module.exports = function(sequelize, DataTypes) {
     ascent: DataTypes.INTEGER,
     descent: DataTypes.INTEGER,
     rating: DataTypes.FLOAT,
-    imagelink: DataTypes.STRING
+    imagelink: DataTypes.STRING,
+    maplink: DataTypes.STRING
   });
 
   Example.associate = function(models) {

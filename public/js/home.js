@@ -142,10 +142,10 @@ $(document).ready(function () {
                     .attr("data-ascent", trailInfo.ascent)
                     .attr("data-descent", trailInfo.descent)
                     .attr("data-rating", trailInfo.stars)
-                    .attr("data-imagelink", trailIMG);
+                    .attr("data-imagelink", trailIMG)
+                    .attr("data-maplink", `https://www.hikingproject.com/trail/${trailInfo.id}/${trailInfo.name}`);
 
-
-                // console.log(trailInfo);
+                console.log(`trailInfo.name`);
 
                 newP.append(trailInfo.location);
                 newCardbody.append(newH);
@@ -251,6 +251,8 @@ $(document).ready(function () {
         let trailDescent = $(this).data("descent");
         let trailRating = $(this).data("rating");
         let trailIMG = $(this).data("imagelink");
+        let trailMap = $(this).data("maplink");
+
         // Setting object with above to send to DB
         let upload = {
             text: trailName,
@@ -261,7 +263,8 @@ $(document).ready(function () {
             ascent: trailAscent,
             descent: trailDescent,
             rating: trailRating,
-            imagelink: trailIMG
+            imagelink: trailIMG,
+            maplink: trailMap
         };
 
         // POST request to send upload object from above to DB
