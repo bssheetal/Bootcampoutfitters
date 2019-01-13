@@ -5,11 +5,3 @@ USE bootcamp_outfitter_db;
 
 DROP DATABASE IF EXISTS testdb;
 CREATE DATABASE testdb;
-
-SELECT * FROM Users;
-
-SELECT * FROM Examples;
-
-SELECT * FROM Userprofiles;
-
-SELECT * FROM Searchregions;
