@@ -161,27 +161,38 @@ body {
 .forecast {
   float: right;
   margin-right: 10px;
+  margin-top: 58px;
   background-color: none;
 }
 .weatherHeader {
   line-height: 2em;
   font-size: 20px;
   width: 250px;
-  float: right;
   margin-top: 10px;
   margin-right: 10px;
+  padding-left: 10px;
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  border: solid .75px #fff;
+  vertical-align: middle !important;
 }
 #weatherCard {
+  float: right;
+  /* color: #fff; */
   line-height: 1em;
   width: 250px;
+  height: 220px;
   margin-bottom: 15px;
   align-items: center;
   border: 1px solid #fff;
+  vertical-align: middle !important;
+  padding-top: 15px;
+  background-color: #fff;
+  box-shadow: 2px 2px #6ac9f5;
+  /* box-shadow: inset 0 0 10px #6ac9f5; */
+  /* background-image: url("../images/poly-1.png");
+  background-size: cover; */
 }
 .dayBSBody {
   display: flex;
@@ -192,7 +203,13 @@ body {
 .dayOfWk {
   font-size: 20px; 
 }
-
+.smallTxt {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+.highLow {
+  margin-top:10px;
+}
 /* Nature Video: Home (kat) */
 #myVideo {
   position: fixed;
@@ -230,42 +247,67 @@ body {
   width:250px;
   
 }
-
-.modal-header
-{
-  background-color: #65C7F7;
- 
-}
-
-.modal-footer
-{
+/* Modal Info */
+.modal-header {
   background-color: #65C7F7;
 }
 
-.btnclose:hover
-{
+.modal-footer {
+  background-color: #65C7F7;
+}
+
+.btnclose:hover {
     background-color:  #65C7F7;
     color: black;
     font-weight: bold;
     width:15%;
 }
-.traillength
-{
+.traillength {
   width:50px;
   height:50px;
 }
 
-.btnclose
-{
+.btnclose {
     background-color:   #65C7F7;
     color: black;
     font-weight: bold;
     width:15%;
 }
 
-.modalimg
-{
-  width:300px;
+.modalimg {
   height:200px;
+  width:300px;
   margin-bottom: 5%;
 }
+/* Widget Info */
+#photo-href {
+  background-color: #000;
+  background-image: none !important;
+}
+#trail-td {
+  background-color: #000;
+  background-image: none !important;
+}
+#map-td {
+  background-color: #000;
+  background-image: none !important;
+}
+.widgetCover {
+  position: absolute;
+  top: 480px;
+  left: 485px;
+  width: 295px;
+  height: 172px;
+  background-color: #000;
+  /* filter:opacity(75%);
+  border: solid 1px #fff; */
+} 
+@media only screen and (max-width: 991px) {
+  .widgetCover {
+    top: 464px;
+    left: 85px;
+    width: 310px;
+    /* filter:opacity(75%);
+    border: solid 1px #fff; */
+  }
+} 
