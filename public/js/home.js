@@ -140,7 +140,10 @@ $(document).ready(function () {
                     .attr("data-difficulty", difficulty)
                     .attr("data-summary", trailInfo.summary)
                     .attr("data-ascent", trailInfo.ascent)
-                    .attr("data-descent", trailInfo.descent);
+                    .attr("data-descent", trailInfo.descent)
+                    .attr("data-rating", trailInfo.stars)
+                    .attr("data-imagelink", trailIMG);
+
 
                 console.log(trailInfo);
 
@@ -237,6 +240,8 @@ $(document).ready(function () {
         let trailSummary = $(this).data("summary");
         let trailAscent = $(this).data("ascent");
         let trailDescent = $(this).data("descent");
+        let trailRating = $(this).data("rating");
+        let trailIMG = $(this).data("imagelink");
         // Setting object with above to send to DB
         let upload = {
             text: trailName,
@@ -245,7 +250,9 @@ $(document).ready(function () {
             difficulty: trailDiff,
             summary: trailSummary,
             ascent: trailAscent,
-            descent: trailDescent
+            descent: trailDescent,
+            rating: trailRating,
+            imagelink: trailIMG
         };
 
         // POST request to send upload object from above to DB
