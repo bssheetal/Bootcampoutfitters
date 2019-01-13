@@ -31,7 +31,9 @@ module.exports = function (app) {
       difficulty: req.body.difficulty,
       summary: req.body.summary,
       ascent: req.body.ascent,
-      descent: req.body.descent
+      descent: req.body.descent,
+      rating: req.body.rating,
+      imagelink: req.body.imagelink
     }).then(function (dbExample) {
       res.json(dbExample);
     });
