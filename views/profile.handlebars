@@ -4,44 +4,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
-<div class="row">
-<div class="col-md-12">
-<div class="hikingSearchBar">
+{{!-- <div class="row">
+  <div class="col-md-12">
+    <div class="hikingSearchBar">
       <div id="parallaxTest">
-    <div class="mySlides">
-      <div class="container">
-      </div>
-    </div>
-  </div>
-  <div class="search" data-id={{user.id}}>
-    <form class="formSearch">
-      <div class="form-row align-items-center">
-        <div class="row">
-          <div class="col-md-4">
-            <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
-            <div class="invalid-feedback">
-              Please enter a location.
-            </div>
-          </div>
-          <div class="col-md-4">
-            <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Miles</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
+        <div class="mySlides">
+          <div class="container">
           </div>
         </div>
       </div>
-    </form>
+      <div class="search" data-id={{user.id}}>
+        <form class="formSearch">
+          <div class="form-row align-items-center">
+            <div class="row">
+              <div class="col-md-4">
+                <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
+                <div class="invalid-feedback">
+                  Please enter a location.
+                </div>
+              </div>
+              <div class="col-md-4">
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Miles</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
+</div> --}}
 
 <div class="row">
 
@@ -76,6 +76,33 @@
 
   <div class="col-md-4 offset-0">
     <div class="middleContainer">
+      <div class="hikingSearchBar">
+        {{!-- <div id="parallaxTest">
+          <div class="mySlides">
+            <div class="container">
+            </div>
+          </div>
+        </div> --}}
+        <div class="search" data-id={{user.id}}>
+          <form class="formSearch">
+            <div class="form-row align-items-center">
+              <h5>Search For Awesome Hikes:</h5>
+              <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
+              <div class="invalid-feedback">
+                Please enter a location.
+              </div>
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Miles</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+              </select>
+              <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
       {{!-- <h4>{{user.email}}'s</h4>
       <h4 class="text-center">Profile Page</h4><br> --}}
       <form class="clearfix mb-4 bucketList" action="POST">
