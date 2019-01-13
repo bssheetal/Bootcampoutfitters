@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
     difficulty: DataTypes.STRING,
     summary: DataTypes.STRING,
     ascent: DataTypes.INTEGER,
-    descent: DataTypes.INTEGER
+    descent: DataTypes.INTEGER,
+    rating: DataTypes.FLOAT,
+    imagelink: DataTypes.STRING
   });
 
   Example.associate = function(models) {
