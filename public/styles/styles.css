@@ -150,8 +150,14 @@ body {
   width: 250px;
   /* height: 200px; */
 }
-
+/* Bucket List Styling Info */
+.bucketList {
+  margin-top: 20px;
+}
 /* Weather Syling Info (kat) */
+#weatherDiv {
+  margin-top:20px;
+}
 .forecast {
   float: right;
   margin-right: 10px;
