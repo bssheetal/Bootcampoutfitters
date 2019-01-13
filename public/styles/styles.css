@@ -269,3 +269,8 @@ body {
   height:200px;
   margin-bottom: 5%;
 }
+
+/* cursor changes to hand pointer when hovering a link */
+a:hover {
+  cursor: pointer;
+}

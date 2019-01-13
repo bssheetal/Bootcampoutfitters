@@ -131,7 +131,7 @@ $(document).ready(function () {
                 newH.append(trailInfo.name);
                 newB
                     .append('<i class="fas fa-list"></i> Add to List')
-                    .addClass("addButton btn-primary");
+                    .addClass("addButton btn btn-primary");
                 newB
                     .attr("type", "submit")
                     .attr("data-actName", trailInfo.name)
