@@ -152,19 +152,24 @@ body {
 }
 
 /* Weather Syling Info (kat) */
+.weatherHeader {
+  line-height: 2em;
+  font-size: 20px; 
+  /* 1.25rem equiv */
+}
 .daydiv {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #fff;
   border-radius: 3px;
   margin-bottom: 10px;
-  width: 150px;
+  width: 150px; */
 }
 #weatherDiv {
-  text-align: left;
-  margin-top:10px;
+  /* text-align: left;
+  margin-top:10px; */
 }
 
 /* Nature Video: Home (kat) */
