@@ -10,16 +10,17 @@
                                                         background-color: rgba(214, 219, 223, .7); 
                                                         border-radius: 10px;
                                                         ">
-    <h5>Trail Info</h5>
-    <p><strong>ID</strong>: {{example.id}}</p>
     <p><strong>{{example.text}}</strong></p>
-    <img src={{example.imagelink}}>
     <p> {{example.description}}</p>
+    {{#if example.lengthOfTrail}}
+    <a href={{example.maplink}} target="_blank"><img src={{example.imagelink}}></a>
+    <hr>
     <p><strong>Length:</strong> {{example.lengthOfTrail}}</p>
     <p><strong>Difficulty:</strong> {{example.difficulty}}</p>
     <p><strong>Summary:</strong> {{example.summary}}</p>
     <p><strong>Ascent:</strong> {{example.ascent}}</p>
     <p><strong>Descent:</strong> {{example.descent}}</p>
     <p><strong>Rating: </strong><strong style="color:green;">{{example.rating}} </strong>/ 5 stars</p>
+    {{/if}}
     <a href="/profile">← Back To Home</a>
 </div>

@@ -42,9 +42,112 @@ $(document).ready(function() {
       }
     }
 
-    function slideshow() {
-      showImage = setInterval(nextImage, 13000);
-      // displayImage();
+    // slideshowbackgroundimages();
+
+    $("#searchButton").on("click", function (e) {
+        e.preventDefault();
+        $("#hikingDiv").empty();
+        gethikinginfo();
+        getweatherinfo();
+    });
+
+
+    function gethikinginfo() {
+        var region = $("#inlineFormInput").val().trim();
+        var miles = $("#inputGroupSelect01 option:selected").val();
+        console.log("hikingregion is" + city);
+        if (region === " " || region.length == 0 || region == null) {
+            var searchinfo = {
+                region: city,
+                miles: 15
+            };
+        } else {
+            var searchinfo = {
+                region: region,
+                miles: miles
+            };
+        }
+
+        $.get("/hiking", searchinfo, function (response) {
+            console.log(response);
+
+            for (var i = 0; i < response.length; i++) {
+                trailInfo = response[i];
+                var difficulty;
+                var newDiv = $("<div>");
+
+                newDiv.addClass("col-sm-4");
+                if (trailInfo.difficulty === "blue") {
+                    difficulty = "Medium";
+                } else if (trailInfo.difficulty === "blueBlack") {
+                    difficulty = "Hard";
+                } else if (trailInfo.difficulty === "greenBlue") {
+                    difficulty = "Easy";
+                } else if (trailInfo.difficulty === "green") {
+                    difficulty = "Easy";
+                } else if (trailInfo.difficulty === "black") {
+                    difficulty = "Hard";
+                } else if (trailInfo.difficulty === "dblack") {
+                    difficulty = "ExtremelyHard";
+                }
+
+                var newDiv = $("<div>").addClass("card card-trail mt-4");
+                var newDiv = $("<div>").addClass("card card-trail mt-3 mb-3");
+
+                newDiv
+                    .attr("data-actNum", trailInfo.id)
+                    .attr("data-actName", trailInfo.name)
+                    .attr("data-actDiff", difficulty)
+                    .attr("data-actLength", trailInfo.length)
+                    .attr("data-actRating", trailInfo.stars)
+                    .attr("data-lat", trailInfo.latitude)
+                    .attr("data-lng", trailInfo.longitude)
+                    .attr("data-summary", trailInfo.summary)
+                    .attr("data-ascent", trailInfo.ascent)
+                    .attr("data-descent", trailInfo.descent)
+                    .attr("data-rating", trailInfo.stars);
+
+                var newIMG = $("<img>");
+                newIMG.addClass("trailImg card-image-top");
+                var trailIMG = trailInfo.imgSmall;
+                if (trailIMG == "") {
+                    trailIMG =
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYZnN0W990Rs6d4UGDcD_wO2mLZ-j8Q-AD_WibHGs5ztvRrz9L";
+                }
+                newIMG.attr("src", trailIMG);
+
+                var newCardbody = $("<div>").addClass("card-body");
+                var newP = $("<p>");
+                var newH = $("<h5>");
+                var newB = $("<button>");
+                newH.append(trailInfo.name);
+                newB
+                    .append('<i class="fas fa-list"></i> Add to List')
+                    .addClass("addButton btn btn-primary");
+                newB
+                    .attr("type", "submit")
+                    .attr("data-actName", trailInfo.name)
+                    .attr("data-actLoc", trailInfo.location)
+                    .attr("data-length", trailInfo.length)
+                    .attr("data-difficulty", difficulty)
+                    .attr("data-summary", trailInfo.summary)
+                    .attr("data-ascent", trailInfo.ascent)
+                    .attr("data-descent", trailInfo.descent)
+                    .attr("data-rating", trailInfo.stars)
+                    .attr("data-imagelink", trailIMG)
+                    .attr("data-maplink", `https://www.hikingproject.com/trail/${trailInfo.id}/${trailInfo.name}`);
+
+                console.log(`trailInfo.name`);
+
+                newP.append(trailInfo.location);
+                newCardbody.append(newH);
+                newCardbody.append(newP);
+                newCardbody.append(newB);
+
+                newDiv.append(newIMG, newCardbody);
+                $("#hikingDiv").append(newDiv);
+            }
+        });
     }
 
     slideshow();

@@ -34,7 +34,8 @@ module.exports = function (app) {
       ascent: req.body.ascent,
       descent: req.body.descent,
       rating: req.body.rating,
-      imagelink: req.body.imagelink
+      imagelink: req.body.imagelink,
+      maplink: req.body.maplink
     }).then(function (dbExample) {
       res.json(dbExample);
     });
