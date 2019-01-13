@@ -65,17 +65,21 @@
     <h4 class="text-center">Profile Page</h4><br> --}}
     <form class="clearfix mb-4 bucketList" action="POST">
       <div class="form-group">
-        <label for="example-text"><h4>Bucket List Item:</h4></label>
+        <label for="example-text">
+          <h4>Bucket List Item:</h4>
+        </label>
         <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="I.e., Mount Everest, K2, Mt. Kilimanjaro, Denali/Mt. McKinley, or just Potato Chip Rock...">
       </div>
       <div class="form-group">
-        <label for="example-description"><h4>Hiking Notes:</h4></label>
+        <label for="example-description">
+          <h4>Hiking Notes:</h4>
+        </label>
         <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Hiking Beta/Info: Bring Hiking Poles, 1L-3L bottle/bladder..."></textarea>
       </div>
       <button id="submit" class="btn btn-primary float-right">Buck-it</button>
     </form>
     <h4>My Bucket List:</h4>
-    <div id="bucketDiv">
+    <div id="bucketDiv" class="mb-5">
       <ul id="example-list" class="list-group">
         {{#each user.Examples}}
         <li data-id="{{this.id}}" data-complete={{this.complete}} class="list-group-item">
@@ -94,6 +98,8 @@
         {{/each}}
       </ul> --}}
     </div>
+   
+    <iframe style="width:100%; max-width:1200px; height:500px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget/map?favs=0&location=ip&x=-13037883&y=3890686&z=8.5&h=500"></iframe>
   </div>
 
   <div class="col-md-3">
