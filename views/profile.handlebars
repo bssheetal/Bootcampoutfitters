@@ -4,45 +4,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
-{{!-- <div class="row">
-  <div class="col-md-12">
-    <div class="hikingSearchBar">
-      <div id="parallaxTest">
-        <div class="mySlides">
-          <div class="container">
-          </div>
-        </div>
-      </div>
-      <div class="search" data-id={{user.id}}>
-        <form class="formSearch">
-          <div class="form-row align-items-center">
-            <div class="row">
-              <div class="col-md-4">
-                <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
-                <div class="invalid-feedback">
-                  Please enter a location.
-                </div>
-              </div>
-              <div class="col-md-4">
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>Miles</option>
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="20">20</option>
-                  <option value="30">30</option>
-                </select>
-              </div>
-              <div class="col-md-4">
-                <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div> --}}
-
 <div class="row">
 
   <div class="col-md-4">
@@ -77,6 +38,7 @@
   <div class="col-md-4 offset-0">
     <div class="middleContainer">
       <div class="hikingSearchBar">
+        {{!-- Is this in use? --}}
         {{!-- <div id="parallaxTest">
           <div class="mySlides">
             <div class="container">
@@ -87,18 +49,24 @@
           <form class="formSearch">
             <div class="form-row align-items-center">
               <h5>Search For Awesome Hikes:</h5>
-              <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="Location">
+              <input type="text" class="form-control mt-4" id="inlineFormInput" placeholder="please enter a location">
               <div class="invalid-feedback">
-                Please enter a location.
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Miles</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-              </select>
-              <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-3">
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Miles</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <button type="submit" class="btn btn-primary mt-4" id="searchButton">Search</button>
+              </div>
+
             </div>
           </form>
         </div>
@@ -111,7 +79,7 @@
             <label for="example-text">
               <h5>Bucket List Item:</h5>
             </label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="I.e., Mount Everest, K2, Mt. Kilimanjaro, Denali/Mt. McKinley, or just Potato Chip Rock...">
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="e.g., mount everest, k2, mount whitney, potato chip rock ...">
           </div>
         </div>
         <div class="bucketHikeContainer">
@@ -119,7 +87,7 @@
             <label for="example-description">
               <h5>Hiking Notes:</h5>
             </label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Hiking Beta/Info: Bring Hiking Poles, 1L-3L bottle/bladder..."></textarea>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="hiking beta aka info: bring hiking poles, 1L-3L bottle/bladder ..."></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Buck-it</button>
         </div>

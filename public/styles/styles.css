@@ -71,10 +71,6 @@ body {
     padding: 2rem;
 }
 
-.mainSignupImg {
-    /* filter: opacity(90%); */
-}
-
 #myVideo {
     position: fixed;
     right: 0;
@@ -84,13 +80,13 @@ body {
     top: -60px;
     min-width: 110%;
     min-height: 110%;
-    /* background-size: cover; */
 }
 
 /* Profile Page Left Content: Hiking Results ------------------*/
 
 .leftContainer {
     float: left !important;
+    margin-top: 5px;
 }
 
 .card-trail {
@@ -116,19 +112,14 @@ body {
 .hikingSearchBar {
     background-color: white;
     width: 600px;
-    margin-top: 60px;
+    margin-top: 20px;
     padding: 30px;
-    filter: opacity(90%);
-}
-
-.formSearch {
-    /* width: 400px; */
+    filter: opacity(75%);
 }
 
 #inlineFormInput {
     position: relative;
     width: 530px;
-    /* padding: 1px -3px; */
 }
 
 #inputGroupSelect01 {
@@ -136,9 +127,6 @@ body {
     width: 100%;
     margin-top: 1.5rem !important;
     margin-left: 6px;
-    /* padding: 1px 3px; */
-    /* font-size: 1rem;
-  line-height: 1.5; */
 }
 
 /* Profile Page Middle Content: Bucket List -------------------*/
@@ -146,9 +134,9 @@ body {
 .bucketItemContainer {
     background-color: white;
     width: 600px;
-    margin-top: 60px;
+    margin-top: 20px;
     padding: 30px;
-    filter: opacity(90%);
+    filter: opacity(75%);
 }
 
 .bucketHikeContainer {
@@ -158,7 +146,7 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 30px;
-    filter: opacity(90%);
+    filter: opacity(75%);
 }
 
 .bucketListContainer {
@@ -167,10 +155,8 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 30px;
-    filter: opacity(90%);
+    filter: opacity(75%);
 }
-
-/* Line Through Completed Activities */
 
 [data-complete="true"] {
     text-decoration: line-through;
@@ -192,13 +178,9 @@ label {
     float: right !important;
 }
 
-#weatherDiv {
-    margin-top: 20px;
-}
-
 .forecast {
     float: right;
-    margin-top: 32px;
+    margin-top: 12px;
     background-color: none;
 }
 
@@ -206,7 +188,6 @@ label {
     line-height: 2em;
     font-size: 20px;
     width: 250px;
-    margin-top: 10px;
     margin-right: 10px;
     padding-left: 10px;
     display: flex !important;
@@ -225,13 +206,10 @@ label {
     align-items: center;
     border: 1px solid #fff;
     vertical-align: middle !important;
-    padding-top: 15px;
     background-color: #fff;
     background-image: url("../images/poly-1.png");
     background-size: cover;
     box-shadow: 2px 2px #6ac9f5;
-    /* box-shadow: inset 0 0 10px #6ac9f5; */
-    /* color: #fff; */
 }
 
 .dayBSBody {
@@ -401,11 +379,10 @@ label {
     background-color: #ea4335;
 }
 
-.searchButton {
+#searchButton {
     color: whitesmoke;
     background-color: #ea4335;
-    width: 45%;
-    font-weight: 1000px;
+    margin-right: 20px;
 }
 
 .btn-facebook {
