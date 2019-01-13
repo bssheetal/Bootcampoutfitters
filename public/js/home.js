@@ -182,7 +182,7 @@ $(document).ready(function () {
             // let's choose only the first city repsonse [0] of the array object
             var city = response[0].current.observationpoint;
             // inserted an h1 header
-            $("#weatherDiv").append("<p class ='weatherHeader'>5 Day Forecast for:<br>" + city + "</p>");
+            $("#weatherDiv").append("<p class ='weatherHeader card'>5 Day Forecast for:<br>" + city + "</p>");
             // created forecast variable to hold weather data
             var forecastDiv = $('<div class = "forecast">');
             
@@ -197,29 +197,32 @@ $(document).ready(function () {
                 // let's see the response array in the console for response[0].forecast[i]
                 console.log(currentDay);
                 
-                // variable to display each day (dayDiv) in a boostrap card class
-                var dayDiv = $('<div class = "daydiv">');
+                // variable to display each day into dayDiv with a Bootstrap 'card' class
+                var dayDiv = $('<div class = "card" id = "weatherCard">');
+                // variable to display dayDiv with a Bootstrap 'card-body' class
+                var dayBSBody = $('<div class = "card-body dayBSBody">');
                 // variable to display the current day of the week; e.g, Sunday, Monday, etc.
-                var dayofwkDiv = $("<p class = 'forecastFont'>" + currentDay.day + "</p>");
+                var dayofwkDiv = $("<p class = 'dayOfWk'>" + currentDay.day + "</p>");
                 // variable to display the date; e.g, 01-10-2019
-                var dateDiv = $("<p class = 'forecastFont'>" + currentDay.date + "</p>");
+                var dateDiv = $("<p>" + currentDay.date + "</p>");
                 // variable to display weather conditions; e.g, Mostly Sunny, Mostly Cloudy, Clear, etc.
-                var skytxtDiv = $("<p class = 'forecastFont'>" + currentDay.skytextday + "</p>");
+                var skytxtDiv = $("<p>" + currentDay.skytextday + "</p>");
                 // variable to display skycodeday number that corresponds to an image .gif url from weather-js (microsoft's weather website)
                 var skycodeDiv = $("<img src = " + conditionsImgs + " class = 'forecastFont'>");
                 // variable to display the highest temperature for the day in Fahrenheit with a degree unicode symbol
-                var highDiv = $("<p class = 'forecastFont'> High: " + currentDay.high + "\u00B0F" + "</p>");
+                var highDiv = $("<p> High: " + currentDay.high + "\u00B0F" + "</p>");
                 // variable to display the lowest temperature for the day in Fahrenheit with a degree unicode symbol
-                var lowDiv = $("<p class = 'forecastFont'> Low: " + currentDay.low + "\u00B0F" + "</p>");
+                var lowDiv = $("<p> Low: " + currentDay.low + "\u00B0F" + "</p>");
 
-                // append the data to each day (dayDiv)
-                dayDiv.append(dateDiv);
-                dayDiv.append(dayofwkDiv);
-                dayDiv.append(skytxtDiv);
-                dayDiv.append(skycodeDiv);
-                dayDiv.append(highDiv);
-                dayDiv.append(lowDiv);
-                
+                // append dayBSBody into dayDiv
+                dayDiv.append(dayBSBody);
+                // append data into dayBSBody
+                dayBSBody.append(dayofwkDiv);
+                dayBSBody.append(dateDiv);
+                dayBSBody.append(skytxtDiv);
+                dayBSBody.append(skycodeDiv);
+                dayBSBody.append(highDiv);
+                dayBSBody.append(lowDiv);
                 // append all dayDiv data to forecastDiv
                 forecastDiv.append(dayDiv);
             }   
