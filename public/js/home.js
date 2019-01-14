@@ -131,7 +131,7 @@ $(document).ready(function () {
                 newH.append(trailInfo.name);
                 newB
                     .append('<i class="fas fa-list"></i> Add to List')
-                    .addClass("addButton btn btn-primary");
+                    .addClass("addButton btn-primary");
                 newB
                     .attr("type", "submit")
                     .attr("data-actName", trailInfo.name)
@@ -142,10 +142,10 @@ $(document).ready(function () {
                     .attr("data-ascent", trailInfo.ascent)
                     .attr("data-descent", trailInfo.descent)
                     .attr("data-rating", trailInfo.stars)
-                    .attr("data-imagelink", trailIMG)
-                    .attr("data-maplink", `https://www.hikingproject.com/trail/${trailInfo.id}/${trailInfo.name}`);
+                    .attr("data-imagelink", trailIMG);
 
-                console.log(`trailInfo.name`);
+
+                console.log(trailInfo);
 
                 newP.append(trailInfo.location);
                 newCardbody.append(newH);
@@ -251,8 +251,6 @@ $(document).ready(function () {
         let trailDescent = $(this).data("descent");
         let trailRating = $(this).data("rating");
         let trailIMG = $(this).data("imagelink");
-        let trailMap = $(this).data("maplink");
-
         // Setting object with above to send to DB
         let upload = {
             text: trailName,
@@ -263,8 +261,7 @@ $(document).ready(function () {
             ascent: trailAscent,
             descent: trailDescent,
             rating: trailRating,
-            imagelink: trailIMG,
-            maplink: trailMap
+            imagelink: trailIMG
         };
 
         // POST request to send upload object from above to DB
@@ -351,12 +348,7 @@ $(document).ready(function () {
         var diffp = $("<p>");
         var difflevel = $(this)
             .closest("div")
-            .attr("data-actDiff");
-        // if(difflevel==="Easy")
-        // {
-        //     diffp.attr('style','font-color=green');
-        //     diffp.append(`<p>Difficulty: ${difflevel}`);
-        // }    
+            .attr("data-actDiff");   
         diffp.append(`<p>Difficulty: ${difflevel}`);
         var summary = $(this)
             .closest("div")
@@ -372,13 +364,22 @@ $(document).ready(function () {
             .closest("div")
             .attr("data-descent");
         ascentp.append(
-            `<p>Ascent:${Ascent},      Descent:${Descent}</p>`
+            `<p>Ascent:${Ascent} ft,      Descent:${Descent} ft</p>`
         );
         var ratingp = $("<p>");
         var Ratings = $(this)
             .closest("div")
             .attr("data-rating");
         ratingp.append(`<p>Ratings: ${Ratings}/5 stars</p>`)
+        var Mapinfo=$(`<p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+          aria-expanded="false" aria-controls="collapseExample">
+         Trail Map
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+        <iframe style="width:100%; max-width:1200px; height:410px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=${trailid}"></iframe></div></div>`);
         // modaldiv.append(newP);
         modaldiv.append(newIMG);
         modaldiv.append(newsummary);
@@ -386,7 +387,7 @@ $(document).ready(function () {
         modaldiv.append(diffp);       
         modaldiv.append(ascentp);
         modaldiv.append(ratingp);
-        modaldiv.append(trailiframe);
+        modaldiv.append(Mapinfo);
 
         $(".modal-body").append(modaldiv);
         $("#myModal").modal("show");
