@@ -1,6 +1,5 @@
-{{!-- Bucket List Section: --}}
 <div class="row">
-
+{{!-- Left Section for Search and Trail cards --}}
   <div class="col-md-3">
     <div id="parallaxTest">
       <div class="mySlides">
@@ -9,6 +8,7 @@
         </div>
       </div>
     </div>
+    {{!-- display search textbox and button --}}
     <div class="search" data-id={{user.id}}>
       <form class="formSearch">
         <div class="form-row align-items-center">
@@ -35,6 +35,8 @@
         </div>
       </form>
     </div>
+
+    {{!-- display trail cards --}}
     <div id="hikingDiv">
 
     </div>
@@ -60,7 +62,8 @@
     </div>
   </div>
 
-  <div class="col-md-6 offset-0">
+{{!-- Middle Section for Bucket List and Map: --}}
+  <div class="col-md-6 offset-0 middle-section">
     {{!-- <h4>{{user.email}}'s</h4>
     <h4 class="text-center">Profile Page</h4><br> --}}
     <form class="clearfix mb-4 bucketList" action="POST">
@@ -99,9 +102,15 @@
       </ul> --}}
     </div>
 
-    <iframe style="width:100%; max-width:1200px; height:500px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget/map?favs=0&location=ip&x=-13037883&y=3890686&z=8.5&h=500"></iframe>
+    {{!-- display map based on the city which the user inputs when signing up --}}
+    <label for="example-text mt-5">
+          <h4>Trail Map</h4>
+        </label>
+    <div class="map-section"></div>
+
   </div>
 
+{{!-- Right Section for Weather: --}}
   <div class="col-md-3">
     <div id="weatherDiv"></div>
   </div>

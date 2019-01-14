@@ -138,10 +138,12 @@ body {
   background-color: #3b5998;
 }
 
+/* make header transparent */
 .header {
   background-color:  rgba(255,255,255, 0.5);
 }
 
+/* make footer transparent */
 .footer {
   background-color: rgba(255,255,255, 0.5);
 }

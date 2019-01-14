@@ -131,7 +131,7 @@ $(document).ready(function () {
                 newH.append(trailInfo.name);
                 newB
                     .append('<i class="fas fa-list"></i> Add to List')
-                    .addClass("addButton btn-primary");
+                    .addClass("addButton btn btn-primary");
                 newB
                     .attr("type", "submit")
                     .attr("data-actName", trailInfo.name)
@@ -142,7 +142,8 @@ $(document).ready(function () {
                     .attr("data-ascent", trailInfo.ascent)
                     .attr("data-descent", trailInfo.descent)
                     .attr("data-rating", trailInfo.stars)
-                    .attr("data-imagelink", trailIMG);
+                    .attr("data-imagelink", trailIMG)
+                    .attr("data-maplink", `https://www.hikingproject.com/trail/${trailInfo.id}/${trailInfo.name}`);
 
 
                 console.log(trailInfo);
@@ -155,6 +156,23 @@ $(document).ready(function () {
                 newDiv.append(newIMG, newCardbody);
                 $("#hikingDiv").append(newDiv);
             }
+
+            // clean up the old map
+            $(".map-section").empty();
+
+            // calculate the x, y location based on the latitude and longitude for display trail map
+            var x = Math.round(trailInfo.longitude * .017453292 * 6378137.0);;
+            var y = Math.round(Math.log(Math.tan(0.78539816 + trailInfo.latitude * .017453292 / 2.0)) * 6378137.0);;
+
+            // add new trail map based on the city which the user inputs when signing up
+            var newIframe = $("<iframe>");
+            newIframe
+                .attr("frameborder", "0")
+                .attr("scrolling", "no")
+                .attr("style", "width:100%; max-width:1200px; height:500px;")
+                .attr("src", `https://www.hikingproject.com/widget/map?favs=0&location=fixed&x=${x}&y=${y}&z=8.5&h=500`)
+            $(".map-section").append(newIframe);
+
         });
     }
     
@@ -250,7 +268,9 @@ $(document).ready(function () {
         let trailAscent = $(this).data("ascent");
         let trailDescent = $(this).data("descent");
         let trailRating = $(this).data("rating");
-        let trailIMG = $(this).data("imagelink");
+        let trailIMGlink = $(this).data("imagelink");
+        let trailMaplink = $(this).data("maplink");
+        
         // Setting object with above to send to DB
         let upload = {
             text: trailName,
@@ -261,7 +281,8 @@ $(document).ready(function () {
             ascent: trailAscent,
             descent: trailDescent,
             rating: trailRating,
-            imagelink: trailIMG
+            imagelink: trailIMGlink,
+            maplink: trailMaplink
         };
 
         // POST request to send upload object from above to DB
