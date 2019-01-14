@@ -171,7 +171,7 @@ $(document).ready(function () {
                 .attr("scrolling", "no")
                 .attr("style", "width:100%; max-width:1200px; height:500px;")
                 .attr("src", `https://www.hikingproject.com/widget/map?favs=0&location=fixed&x=${x}&y=${y}&z=8.5&h=500`)
-            // $(".map-section").append(newIframe);
+            $(".map-section").append(newIframe);
 
         });
     }
@@ -268,7 +268,9 @@ $(document).ready(function () {
         let trailAscent = $(this).data("ascent");
         let trailDescent = $(this).data("descent");
         let trailRating = $(this).data("rating");
-        let trailIMG = $(this).data("imagelink");
+        let trailIMGlink = $(this).data("imagelink");
+        let trailMaplink = $(this).data("maplink");
+        
         // Setting object with above to send to DB
         let upload = {
             text: trailName,
@@ -279,7 +281,8 @@ $(document).ready(function () {
             ascent: trailAscent,
             descent: trailDescent,
             rating: trailRating,
-            imagelink: trailIMG
+            imagelink: trailIMGlink,
+            maplink: trailMaplink
         };
 
         // POST request to send upload object from above to DB
