@@ -36,6 +36,7 @@ module.exports = function (app) {
       dbExample
     ) {
       res.render("item", {
+        user: req.user,
         example: dbExample
       });
     });
